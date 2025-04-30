@@ -1,0 +1,2250 @@
+document_index,full_prompt,llm_answer,resulting_action
+2721,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: who employs you
+
+Representative Document for a Cluster: what company were you designed by
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",YES,LLM Said YES (Remains in Original)
+3155,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: turn on the microwave for 3 minutes
+
+Representative Document for a Cluster: set a timer
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",YES,LLM Said YES (Remains in Original)
+792,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: can you confirm the reservation at fleming's for jane
+
+Representative Document for a Cluster: tell me if the new york restaurant takes reservations
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",YES,LLM Said YES (Remains in Original)
+2743,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: is there a spending limit
+
+Representative Document for a Cluster: can i increase the credit limit on my discover card
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",YES,LLM Said YES (Remains in Original)
+930,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: how do you refer to me
+
+Representative Document for a Cluster: what is the name you have for me
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",YES,LLM Said YES (Remains in Original)
+3931,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: play the song called wreckless love
+
+Representative Document for a Cluster: on the speaker what song is playing
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",YES,LLM Said YES (Remains in Original)
+3788,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: what do i currently have on my shopping list
+
+Representative Document for a Cluster: let me know what's on my shopping list
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",YES,LLM Said YES (Remains in Original)
+2096,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: i need to set a reminder to call lisa for her birthday
+
+Representative Document for a Cluster: i have to make a phone call
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",YES,LLM Said YES (Remains in Original)
+3227,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: show my position on the map
+
+Representative Document for a Cluster: tell my location to david
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",YES,LLM Said YES (Remains in Original)
+3312,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: what is the minimum i can pay on my credit card bill
+
+Representative Document for a Cluster: tell me the minimum i can pay on my utilities bill
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",YES,LLM Said YES (Remains in Original)
+2765,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: how long is the wait at fridays
+
+Representative Document for a Cluster: tell me if the new york restaurant takes reservations
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",YES,LLM Said YES (Remains in Original)
+2969,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: what kind of music on the speaker now
+
+Representative Document for a Cluster: turn on my tunes
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",YES,LLM Said YES (Remains in Original)
+1241,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: how do i apply do get myself a visa
+
+Representative Document for a Cluster: do i need a visa to travel outside of the us
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",YES,LLM Said YES (Remains in Original)
+3930,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: play the song called baby shark
+
+Representative Document for a Cluster: on the speaker what song is playing
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",YES,LLM Said YES (Remains in Original)
+3216,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: i want to see my location on the map
+
+Representative Document for a Cluster: tell my location to david
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",NO,LLM Said NO (Checking Candidates)
+3216,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: i want to see my location on the map
+
+Representative Document for a Cluster: what is my current location
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",YES,LLM Said YES (Reassigned to 144)
+2784,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: how busy is cheesecake factory right now
+
+Representative Document for a Cluster: what's up with my order
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",NO,LLM Said NO (Checking Candidates)
+2784,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: how busy is cheesecake factory right now
+
+Representative Document for a Cluster: tell me if the new york restaurant takes reservations
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",YES,LLM Said YES (Reassigned to 22)
+193,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: do you know my phone's location
+
+Representative Document for a Cluster: tell my location to david
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",YES,LLM Said YES (Remains in Original)
+3365,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: forget what i told you to do
+
+Representative Document for a Cluster: can you repeat that
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",NO,LLM Said NO (Checking Candidates)
+3365,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: forget what i told you to do
+
+Representative Document for a Cluster: stop this process
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",YES,LLM Said YES (Reassigned to 139)
+3605,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: how should i address you
+
+Representative Document for a Cluster: what is the name you have for me
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",YES,LLM Said YES (Remains in Original)
+795,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: will you call and check on my reservation for john at bardenay
+
+Representative Document for a Cluster: tell me if the new york restaurant takes reservations
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",YES,LLM Said YES (Remains in Original)
+3230,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: display my location on the map
+
+Representative Document for a Cluster: tell my location to david
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",NO,LLM Said NO (Checking Candidates)
+3230,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: display my location on the map
+
+Representative Document for a Cluster: what is my current location
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",YES,LLM Said YES (Reassigned to 144)
+4188,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: you are going to be called joe now
+
+Representative Document for a Cluster: change my name to bob
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",YES,LLM Said YES (Remains in Original)
+2017,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: when is the egg expired
+
+Representative Document for a Cluster: what is the expiration date of my credit card
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",NO,LLM Said NO (Checking Candidates)
+2017,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: when is the egg expired
+
+Representative Document for a Cluster: how long can i keep milk in the fridge
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",YES,LLM Said YES (Reassigned to 59)
+564,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: my name is going to be sherlock
+
+Representative Document for a Cluster: please start calling me bob
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",NO,LLM Said NO (Checking Candidates)
+564,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: my name is going to be sherlock
+
+Representative Document for a Cluster: change my name to bob
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",YES,LLM Said YES (Reassigned to 108)
+3112,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: i think someone jacked my bank account
+
+Representative Document for a Cluster: please put a freeze on my banking account
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",YES,LLM Said YES (Remains in Original)
+4384,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: purchase grass seed from the store
+
+Representative Document for a Cluster: add milk to my shopping list
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",NO,LLM Said NO (Checking Candidates)
+4384,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: purchase grass seed from the store
+
+Representative Document for a Cluster: let me know what's on my shopping list
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",YES,LLM Said YES (Reassigned to 24)
+295,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: i have a revolving store card and defaulted so will my fico score be affected
+
+Representative Document for a Cluster: i need to know what my credit score is
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",YES,LLM Said YES (Remains in Original)
+297,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: if i lose my job will my credit score go down
+
+Representative Document for a Cluster: i need to know what my credit score is
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",YES,LLM Said YES (Remains in Original)
+929,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: can you tell me about what time i should be arriving at the airport
+
+Representative Document for a Cluster: what's the status of my american airlines flight
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",YES,LLM Said YES (Remains in Original)
+454,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: let me know if my application for american saving bank
+
+Representative Document for a Cluster: can you tell me the status of my credit card application
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",YES,LLM Said YES (Remains in Original)
+1139,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: i'd like to pay $4735 to my water bill
+
+Representative Document for a Cluster: i need to pay my electric bill
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",YES,LLM Said YES (Remains in Original)
+1512,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: on my reminders list, is there an item called conference call
+
+Representative Document for a Cluster: remind me of the items on my list of things to remember
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",YES,LLM Said YES (Remains in Original)
+3363,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: that was a mistake, undo that
+
+Representative Document for a Cluster: can you repeat that
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",NO,LLM Said NO (Checking Candidates)
+3363,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: that was a mistake, undo that
+
+Representative Document for a Cluster: that is incorrect
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",YES,LLM Said YES (Reassigned to 131)
+3938,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: i want to hear my slow playlist
+
+Representative Document for a Cluster: turn on my tunes
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",YES,LLM Said YES (Remains in Original)
+2313,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: what's the latest i can pay my cellular bill
+
+Representative Document for a Cluster: tell me the minimum i can pay on my utilities bill
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",NO,LLM Said NO (Checking Candidates)
+2313,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: what's the latest i can pay my cellular bill
+
+Representative Document for a Cluster: i need to pay my electric bill
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",YES,LLM Said YES (Reassigned to 31)
+2805,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: do you think they'll let me reserve a table at the olive garden
+
+Representative Document for a Cluster: reserve a table for 3 at 7 for olive garden
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",YES,LLM Said YES (Remains in Original)
+4159,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: can you tell me something funny about science
+
+Representative Document for a Cluster: tell me fun facts of today
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",YES,LLM Said YES (Remains in Original)
+331,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: speak in german
+
+Representative Document for a Cluster: i want to speak to you in swiss german
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",YES,LLM Said YES (Remains in Original)
+1605,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: it is no
+
+Representative Document for a Cluster: that is incorrect
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",YES,LLM Said YES (Remains in Original)
+3932,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: play the song called i want it that way
+
+Representative Document for a Cluster: turn on my tunes
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",YES,LLM Said YES (Remains in Original)
+798,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: has my reservation for john at bardenay been confirmed
+
+Representative Document for a Cluster: i have to cancel my reservation
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",NO,LLM Said NO (Checking Candidates)
+798,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: has my reservation for john at bardenay been confirmed
+
+Representative Document for a Cluster: tell me if the new york restaurant takes reservations
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",YES,LLM Said YES (Reassigned to 22)
+1048,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: what is the largest transaction i have made on video games this month
+
+Representative Document for a Cluster: how much money have i spent recently
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",YES,LLM Said YES (Remains in Original)
+2769,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: how long before i can eat at chic fil a
+
+Representative Document for a Cluster: tell me if the new york restaurant takes reservations
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",NO,LLM Said NO (Checking Candidates)
+2769,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: how long before i can eat at chic fil a
+
+Representative Document for a Cluster: how long will it take to cook a lasagna
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",NO,LLM Said NO (Remains in Original)
+2769,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: how long before i can eat at chic fil a
+
+Representative Document for a Cluster: how long can i keep milk in the fridge
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",NO,LLM Said NO (Remains in Original)
+2769,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: how long before i can eat at chic fil a
+
+Representative Document for a Cluster: is there traffic on the way
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",NO,LLM Said NO (Remains in Original)
+3893,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: show allison how to get to me
+
+Representative Document for a Cluster: i have to make a phone call
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",NO,LLM Said NO (Checking Candidates)
+3893,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: show allison how to get to me
+
+Representative Document for a Cluster: tell my location to david
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",YES,LLM Said YES (Reassigned to 26)
+1108,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: what points have i earned on my visa
+
+Representative Document for a Cluster: i want to use my card reward points
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",YES,LLM Said YES (Remains in Original)
+2787,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: is cheesecake factory busy right now
+
+Representative Document for a Cluster: what's up with my order
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",NO,LLM Said NO (Checking Candidates)
+2787,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: is cheesecake factory busy right now
+
+Representative Document for a Cluster: tell me if the new york restaurant takes reservations
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",NO,Evaluated Candidate
+2787,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: is cheesecake factory busy right now
+
+Representative Document for a Cluster: what are some good places to go out for dinner in my area tonight
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",YES,LLM Said YES (Reassigned to 146)
+1766,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: i spent 34 dollars for 12 gallons of paint what is the average price for each gallon
+
+Representative Document for a Cluster: how much money have i spent recently
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",NO,LLM Said NO (Checking Candidates)
+1766,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: i spent 34 dollars for 12 gallons of paint what is the average price for each gallon
+
+Representative Document for a Cluster: i need to know the answer to 10000 multiplied by 44
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",NO,LLM Said NO (Remains in Original)
+1766,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: i spent 34 dollars for 12 gallons of paint what is the average price for each gallon
+
+Representative Document for a Cluster: how much gas do i have left in my tank
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",NO,LLM Said NO (Remains in Original)
+1766,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: i spent 34 dollars for 12 gallons of paint what is the average price for each gallon
+
+Representative Document for a Cluster: tell me the minimum i can pay on my utilities bill
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",NO,LLM Said NO (Remains in Original)
+3857,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: has my electricity bill increased this month how much
+
+Representative Document for a Cluster: i need to pay my electric bill
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",YES,LLM Said YES (Remains in Original)
+3167,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: ac temperature is at what
+
+Representative Document for a Cluster: please set the oven to 350 f
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",NO,LLM Said NO (Checking Candidates)
+3167,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: ac temperature is at what
+
+Representative Document for a Cluster: how is the weather
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",NO,LLM Said NO (Remains in Original)
+3167,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: ac temperature is at what
+
+Representative Document for a Cluster: i need to know the answer to 10000 multiplied by 44
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",NO,LLM Said NO (Remains in Original)
+3167,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: ac temperature is at what
+
+Representative Document for a Cluster: what is the time in the usa
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",NO,LLM Said NO (Remains in Original)
+2829,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: give me the status of my order
+
+Representative Document for a Cluster: i need to track the status of my order
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",YES,LLM Said YES (Remains in Original)
+959,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: what's the way you refer to me
+
+Representative Document for a Cluster: what is the name you have for me
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",YES,LLM Said YES (Remains in Original)
+1613,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: nope not it
+
+Representative Document for a Cluster: that is incorrect
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",YES,LLM Said YES (Remains in Original)
+4210,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: your birthday please
+
+Representative Document for a Cluster: can you tell me your age
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",YES,LLM Said YES (Remains in Original)
+316,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: i want to learn something about apples
+
+Representative Document for a Cluster: i would like to know what type of things you can help me with
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",NO,LLM Said NO (Checking Candidates)
+316,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: i want to learn something about apples
+
+Representative Document for a Cluster: tell me fun facts of today
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",NO,LLM Said NO (Remains in Original)
+316,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: i want to learn something about apples
+
+Representative Document for a Cluster: let me know what's on my shopping list
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",NO,LLM Said NO (Remains in Original)
+316,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: i want to learn something about apples
+
+Representative Document for a Cluster: um, i'm not sure
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",NO,LLM Said NO (Remains in Original)
+3105,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: i don't remember buying this
+
+Representative Document for a Cluster: let me know what's on my shopping list
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",YES,LLM Said YES (Remains in Original)
+2768,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: what is the best time to go to get a burger without a line
+
+Representative Document for a Cluster: what are some good places to go out for dinner in my area tonight
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",YES,LLM Said YES (Remains in Original)
+4196,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: i'd rather call you gloria
+
+Representative Document for a Cluster: what do i call you
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",YES,LLM Said YES (Remains in Original)
+1370,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: what are the manufacturers guidance on oil changes
+
+Representative Document for a Cluster: when is my car due for its next oil change
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",YES,LLM Said YES (Remains in Original)
+47,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: transfer ninety dollars between glacier checking and farmers accounts, please
+
+Representative Document for a Cluster: how much money is there in my bank accounts
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",YES,LLM Said YES (Remains in Original)
+4182,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: how about i call you sue
+
+Representative Document for a Cluster: what do i call you
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",YES,LLM Said YES (Remains in Original)
+355,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: do you speak english
+
+Representative Document for a Cluster: i want to speak to you in swiss german
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",NO,LLM Said NO (Checking Candidates)
+355,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: do you speak english
+
+Representative Document for a Cluster: speak louder please
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",NO,LLM Said NO (Remains in Original)
+355,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: do you speak english
+
+Representative Document for a Cluster: um, i'm not sure
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",NO,LLM Said NO (Remains in Original)
+355,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: do you speak english
+
+Representative Document for a Cluster: can you repeat that
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",NO,LLM Said NO (Remains in Original)
+938,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: what's your designation
+
+Representative Document for a Cluster: what is the name you have for me
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",YES,LLM Said YES (Remains in Original)
+990,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: i don't like this song, can skip it
+
+Representative Document for a Cluster: on the speaker what song is playing
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",YES,LLM Said YES (Remains in Original)
+601,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: add laundry detergent to the list
+
+Representative Document for a Cluster: add milk to my shopping list
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",YES,LLM Said YES (Remains in Original)
+3235,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: open map and pin point my location
+
+Representative Document for a Cluster: tell my location to david
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",YES,LLM Said YES (Remains in Original)
+2766,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: is the mexican place crowded at night
+
+Representative Document for a Cluster: give me a recipe for tacos
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",NO,LLM Said NO (Checking Candidates)
+2766,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: is the mexican place crowded at night
+
+Representative Document for a Cluster: tell me if the new york restaurant takes reservations
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",NO,Evaluated Candidate
+2766,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: is the mexican place crowded at night
+
+Representative Document for a Cluster: what are some good places to go out for dinner in my area tonight
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",YES,LLM Said YES (Reassigned to 146)
+1380,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: i will say yes as my response
+
+Representative Document for a Cluster: um, i'm not sure
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",NO,LLM Said NO (Checking Candidates)
+1380,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: i will say yes as my response
+
+Representative Document for a Cluster: that's correct
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",YES,LLM Said YES (Reassigned to 62)
+3093,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: i have to report fraudulent activity on my bank of the west card
+
+Representative Document for a Cluster: how do i report that i lost my card
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",NO,LLM Said NO (Checking Candidates)
+3093,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: i have to report fraudulent activity on my bank of the west card
+
+Representative Document for a Cluster: i'm pretty sure i have a fraudulent transaction on my account
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",YES,LLM Said YES (Reassigned to 105)
+37,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: i need to make a transfer of my money
+
+Representative Document for a Cluster: how much money is there in my bank accounts
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",YES,LLM Said YES (Remains in Original)
+903,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: what's the mileage to get the the taj mahal in atlantic city
+
+Representative Document for a Cluster: can you tell me the traffic situation from philadelphia to the new jersey turnpike
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",NO,LLM Said NO (Checking Candidates)
+903,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: what's the mileage to get the the taj mahal in atlantic city
+
+Representative Document for a Cluster: is there traffic on the way
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",NO,LLM Said NO (Remains in Original)
+903,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: what's the mileage to get the the taj mahal in atlantic city
+
+Representative Document for a Cluster: whats the mpg of this car
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",NO,LLM Said NO (Remains in Original)
+903,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: what's the mileage to get the the taj mahal in atlantic city
+
+Representative Document for a Cluster: i need to know the answer to 10000 multiplied by 44
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",NO,LLM Said NO (Remains in Original)
+3382,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: hush
+
+Representative Document for a Cluster: um, i'm not sure
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",NO,LLM Said NO (Checking Candidates)
+3382,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: hush
+
+Representative Document for a Cluster: stop this process
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",NO,LLM Said NO (Remains in Original)
+3382,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: hush
+
+Representative Document for a Cluster: speak louder please
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",NO,LLM Said NO (Remains in Original)
+3382,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: hush
+
+Representative Document for a Cluster: i have to make a phone call
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",NO,LLM Said NO (Remains in Original)
+4211,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: can you tell me your birthday
+
+Representative Document for a Cluster: can you tell me your age
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",YES,LLM Said YES (Remains in Original)
+3221,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: show my location on the map
+
+Representative Document for a Cluster: tell my location to david
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",NO,LLM Said NO (Checking Candidates)
+3221,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: show my location on the map
+
+Representative Document for a Cluster: what is my current location
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",YES,LLM Said YES (Reassigned to 144)
+2249,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: can you see if paying garbage bill is on my todo list for this week
+
+Representative Document for a Cluster: what is on my to-do list
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",YES,LLM Said YES (Remains in Original)
+4360,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: what do i bring in over a year
+
+Representative Document for a Cluster: i would like to know what type of things you can help me with
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",NO,LLM Said NO (Checking Candidates)
+4360,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: what do i bring in over a year
+
+Representative Document for a Cluster: let me know what ingredients i need to make pasta
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",NO,LLM Said NO (Remains in Original)
+4360,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: what do i bring in over a year
+
+Representative Document for a Cluster: how much money am i earning
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",NO,LLM Said NO (Remains in Original)
+4360,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: what do i bring in over a year
+
+Representative Document for a Cluster: how much money have i spent recently
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",NO,LLM Said NO (Remains in Original)
+1404,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: can we please
+
+Representative Document for a Cluster: um, i'm not sure
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",NO,LLM Said NO (Checking Candidates)
+1404,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: can we please
+
+Representative Document for a Cluster: speak louder please
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",YES,LLM Said YES (Reassigned to 20)
+687,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: that might be the case
+
+Representative Document for a Cluster: that's correct
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",YES,LLM Said YES (Remains in Original)
+3118,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: who do i contact to report fraud on my visa
+
+Representative Document for a Cluster: how do i report that i lost my card
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",NO,LLM Said NO (Checking Candidates)
+3118,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: who do i contact to report fraud on my visa
+
+Representative Document for a Cluster: what is the limit on my visa
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",NO,LLM Said NO (Remains in Original)
+3118,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: who do i contact to report fraud on my visa
+
+Representative Document for a Cluster: how do i apply for a new credit card
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",NO,LLM Said NO (Remains in Original)
+3118,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: who do i contact to report fraud on my visa
+
+Representative Document for a Cluster: do i need a visa to travel outside of the us
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",NO,LLM Said NO (Remains in Original)
+2723,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: who is it that you work for
+
+Representative Document for a Cluster: what company were you designed by
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",YES,LLM Said YES (Remains in Original)
+1789,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: what will tomorrow be on the calendar
+
+Representative Document for a Cluster: what's the date today
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",YES,LLM Said YES (Remains in Original)
+2859,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: i would like to change the name on my capital one account
+
+Representative Document for a Cluster: please put a freeze on my banking account
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",NO,LLM Said NO (Checking Candidates)
+2859,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: i would like to change the name on my capital one account
+
+Representative Document for a Cluster: change my name to bob
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",YES,LLM Said YES (Reassigned to 108)
+4378,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: what is my payment going to be
+
+Representative Document for a Cluster: how much money am i earning
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",NO,LLM Said NO (Checking Candidates)
+4378,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: what is my payment going to be
+
+Representative Document for a Cluster: tell me the minimum i can pay on my utilities bill
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",YES,LLM Said YES (Reassigned to 126)
+1872,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: find a place near me to have my tires inspected
+
+Representative Document for a Cluster: when did i last take my car to the shop
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",YES,LLM Said YES (Remains in Original)
+2018,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: when does the honey expire
+
+Representative Document for a Cluster: what is the expiration date of my credit card
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",NO,LLM Said NO (Checking Candidates)
+2018,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: when does the honey expire
+
+Representative Document for a Cluster: how long can i keep milk in the fridge
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",YES,LLM Said YES (Reassigned to 59)
+789,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: confirm my reservation for acero at 7
+
+Representative Document for a Cluster: reserve a table for 3 at 7 for olive garden
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",YES,LLM Said YES (Remains in Original)
+2048,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: look up recipe time for this
+
+Representative Document for a Cluster: let me know what ingredients i need to make pasta
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",YES,LLM Said YES (Remains in Original)
+721,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: make a reservation for chik-fil-a at 3 o' clock please
+
+Representative Document for a Cluster: reserve a table for 3 at 7 for olive garden
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",YES,LLM Said YES (Remains in Original)
+555,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: ai, my name is deb please use my name when you talk to me
+
+Representative Document for a Cluster: what do i call you
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",YES,LLM Said YES (Remains in Original)
+3568,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: would you tell me how the ai is doing
+
+Representative Document for a Cluster: would you tell me if you are a human or are a computer
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",NO,LLM Said NO (Checking Candidates)
+3568,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: would you tell me how the ai is doing
+
+Representative Document for a Cluster: hi, how are you
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",NO,LLM Said NO (Remains in Original)
+3568,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: would you tell me how the ai is doing
+
+Representative Document for a Cluster: thanks for all your help
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",NO,LLM Said NO (Remains in Original)
+3568,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: would you tell me how the ai is doing
+
+Representative Document for a Cluster: um, i'm not sure
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",NO,LLM Said NO (Remains in Original)
+2115,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: my bank of america visa platinum was swiped from my belongings
+
+Representative Document for a Cluster: my card got declined; why
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",YES,LLM Said YES (Remains in Original)
+791,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: confirm that there is a reservation at bellagio for thomas
+
+Representative Document for a Cluster: tell me if the new york restaurant takes reservations
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",YES,LLM Said YES (Remains in Original)
+2690,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: can you speak quieter
+
+Representative Document for a Cluster: can you talk faster
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",NO,LLM Said NO (Checking Candidates)
+2690,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: can you speak quieter
+
+Representative Document for a Cluster: speak louder please
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",NO,Evaluated Candidate
+2690,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: can you speak quieter
+
+Representative Document for a Cluster: put the volume to 4
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",YES,LLM Said YES (Reassigned to 16)
+3819,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: text mark hello
+
+Representative Document for a Cluster: hi, how are you
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",NO,LLM Said NO (Checking Candidates)
+3819,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: text mark hello
+
+Representative Document for a Cluster: i have to make a phone call
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",NO,LLM Said NO (Remains in Original)
+3819,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: text mark hello
+
+Representative Document for a Cluster: i want to speak to you in swiss german
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",NO,LLM Said NO (Remains in Original)
+3819,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: text mark hello
+
+Representative Document for a Cluster: tell me how to spell curiosity
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",NO,LLM Said NO (Remains in Original)
+3074,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: how much flour do i need for a strawberry cake
+
+Representative Document for a Cluster: how long will it take to cook a lasagna
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",NO,LLM Said NO (Checking Candidates)
+3074,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: how much flour do i need for a strawberry cake
+
+Representative Document for a Cluster: let me know what ingredients i need to make pasta
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",NO,LLM Said NO (Remains in Original)
+3074,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: how much flour do i need for a strawberry cake
+
+Representative Document for a Cluster: would it be ok to use butter instead of oil
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",NO,LLM Said NO (Remains in Original)
+3074,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: how much flour do i need for a strawberry cake
+
+Representative Document for a Cluster: how many calories are in a cheeseburger
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",NO,LLM Said NO (Remains in Original)
+1309,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: sorry i missed that
+
+Representative Document for a Cluster: can you repeat that
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",NO,LLM Said NO (Checking Candidates)
+1309,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: sorry i missed that
+
+Representative Document for a Cluster: thanks for all your help
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",NO,LLM Said NO (Remains in Original)
+1309,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: sorry i missed that
+
+Representative Document for a Cluster: um, i'm not sure
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",NO,LLM Said NO (Remains in Original)
+1309,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: sorry i missed that
+
+Representative Document for a Cluster: i have to make a phone call
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",NO,LLM Said NO (Remains in Original)
+4448,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: for my chase account can i order some checkbooks
+
+Representative Document for a Cluster: could i get some more checkbooks sent to me, please
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",YES,LLM Said YES (Remains in Original)
+2764,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: is the friday's full after 4
+
+Representative Document for a Cluster: check meeting rooms available between one and three pm
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",NO,LLM Said NO (Checking Candidates)
+2764,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: is the friday's full after 4
+
+Representative Document for a Cluster: tell me if the new york restaurant takes reservations
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",NO,LLM Said NO (Remains in Original)
+2764,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: is the friday's full after 4
+
+Representative Document for a Cluster: reserve a table for 3 at 7 for olive garden
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",NO,LLM Said NO (Remains in Original)
+2764,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: is the friday's full after 4
+
+Representative Document for a Cluster: please clear my calendar
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",NO,LLM Said NO (Remains in Original)
+1535,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: speak it again slowly
+
+Representative Document for a Cluster: speak louder please
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",NO,LLM Said NO (Checking Candidates)
+1535,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: speak it again slowly
+
+Representative Document for a Cluster: can you repeat that
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",YES,LLM Said YES (Reassigned to 87)
+4407,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: where can i find bluetooth speakers
+
+Representative Document for a Cluster: can you help me locate my phone
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",NO,LLM Said NO (Checking Candidates)
+4407,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: where can i find bluetooth speakers
+
+Representative Document for a Cluster: let me know what's on my shopping list
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",NO,LLM Said NO (Remains in Original)
+4407,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: where can i find bluetooth speakers
+
+Representative Document for a Cluster: turn on my tunes
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",NO,LLM Said NO (Remains in Original)
+4407,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: where can i find bluetooth speakers
+
+Representative Document for a Cluster: put the volume to 4
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",NO,LLM Said NO (Remains in Original)
+3151,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: i need you to turn the bathroom lights on
+
+Representative Document for a Cluster: turn on my tunes
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",NO,LLM Said NO (Checking Candidates)
+3151,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: i need you to turn the bathroom lights on
+
+Representative Document for a Cluster: i have to make a phone call
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",NO,LLM Said NO (Remains in Original)
+3151,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: i need you to turn the bathroom lights on
+
+Representative Document for a Cluster: put the volume to 4
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",NO,LLM Said NO (Remains in Original)
+3151,"Human: 
+You are a master of semantic understanding and clustering analysis.
+
+Task: The dataset you are working with is highly diverse, containing documents from a wide range of topics and styles. Your goal is to evaluate whether the following document should belong to the same cluster as the given representative document, based strictly on their meaning.
+
+Document: i need you to turn the bathroom lights on
+
+Representative Document for a Cluster: i want to speak to you in swiss german
+
+Question: Based on their semantic similarity, should the Document be linked to the Representative Document? Respond only with YES or NO.
+
+Response:
+",NO,LLM Said NO (Remains in Original)

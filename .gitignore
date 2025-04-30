@@ -2,3 +2,5 @@
 __pycache__/
 *.pkl
 .env
+cmvc/
+active_semi_supervised_clustering/

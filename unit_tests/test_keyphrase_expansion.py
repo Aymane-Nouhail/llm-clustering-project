@@ -2,8 +2,14 @@ import unittest
 import numpy as np
 from unittest.mock import patch, MagicMock
 from sklearn.cluster import KMeans # Need KMeans for the final step
+# FIX: Import Type from typing
+from typing import List, Dict, Any, Type # Import Type
+# Import LLMService and KeyphraseList, and BaseModel
+from src.llm_service import LLMService, KeyphraseList
 from src.clustering_methods.keyphrase_expansion import cluster_via_keyphrase_expansion
-from src.llm_service import LLMService # Import the actual LLMService for mocking
+from langchain_core.prompts import ChatPromptTemplate
+from pydantic import BaseModel # Import BaseModel
+
 
 # Define mock data
 MOCK_DOCUMENTS = ["doc one about apples", "doc two about bananas", "doc three about cherries"]
@@ -15,6 +21,7 @@ MOCK_FEATURES = np.array([
 MOCK_N_CLUSTERS = 3
 MOCK_KP_PROMPT_TEMPLATE = "Generate keyphrases for: {document_text}"
 MOCK_EMBEDDING_DIM = MOCK_FEATURES.shape[1] # Match original feature dimension
+
 
 class TestKeyphraseExpansion(unittest.TestCase):
 
@@ -29,33 +36,58 @@ class TestKeyphraseExpansion(unittest.TestCase):
         mock_llm_service_instance.is_available.return_value = True
 
         # Mock get_chat_completion to return simulated JSON keyphrases
-        def mock_get_chat_completion(prompt):
-            if "apples" in prompt:
+        # FIX: The signature now uses the imported Type and BaseModel
+        def mock_get_chat_completion(prompt: Any, output_structure: Type[BaseModel] | None = None) -> str | BaseModel | None:
+            prompt_text = str(prompt)
+            if "apples" in prompt_text:
+                # When structured output is expected, return a mock Pydantic object
+                if output_structure == KeyphraseList:
+                     mock_response = MagicMock(spec=KeyphraseList)
+                     mock_response.keyphrases = ["red fruit", "sweet", "orchard"]
+                     return mock_response
+                # Otherwise, return the old string format (should not happen with updated source code)
                 return '["red fruit", "sweet", "orchard"]'
-            elif "bananas" in prompt:
-                return '["yellow fruit", "tropical", "peel"]'
-            elif "cherries" in prompt:
-                return '["small fruit", "red", "pit"]'
-            return '[]' # Default empty list
+            elif "bananas" in prompt_text:
+                 if output_structure == KeyphraseList:
+                     mock_response = MagicMock(spec=KeyphraseList)
+                     mock_response.keyphrases = ["yellow fruit", "tropical", "peel"]
+                     return mock_response
+                 return '["yellow fruit", "tropical", "peel"]'
+            elif "cherries" in prompt_text:
+                 if output_structure == KeyphraseList:
+                     mock_response = MagicMock(spec=KeyphraseList)
+                     mock_response.keyphrases = ["small fruit", "red", "pit"]
+                     return mock_response
+                 return '["small fruit", "red", "pit"]'
+
+            # If structured output was requested but prompt didn't match, return None
+            if output_structure:
+                return None
+            # Otherwise, return a default string error indicator
+            return "ERROR"
+
 
         mock_llm_service_instance.get_chat_completion.side_effect = mock_get_chat_completion
 
         # Mock get_embedding to return simulated embedding vectors
-        def mock_get_embedding(text):
+        def mock_get_embedding(text: str) -> List[float]:
             # Return a random vector of the expected dimension
             return list(np.random.rand(MOCK_EMBEDDING_DIM))
 
         mock_llm_service_instance.get_embedding.side_effect = mock_get_embedding
 
-        MockLLMService.return_value = mock_llm_service_instance # Ensure the patch returns our mock instance
+        MockLLMService.return_value = mock_llm_service_instance
 
         # Configure the mock KMeans
         mock_kmeans_instance = MagicMock()
         # Mock the fit_predict method to return dummy assignments
         mock_kmeans_instance.fit_predict.return_value = np.array([0, 1, 2])
-        MockKMeans.return_value = mock_kmeans_instance # Ensure the patch returns our mock instance
+        MockKMeans.return_value = mock_kmeans_instance
 
         # Run the method
+        # The prompt template used here should match the one in the source code calling this method
+        prompt_template = ChatPromptTemplate.from_template(MOCK_KP_PROMPT_TEMPLATE + "\nDocument: {document_text}")
+
         assignments = cluster_via_keyphrase_expansion(
             MOCK_DOCUMENTS, MOCK_FEATURES, MOCK_N_CLUSTERS,
             mock_llm_service_instance, MOCK_KP_PROMPT_TEMPLATE
@@ -69,6 +101,8 @@ class TestKeyphraseExpansion(unittest.TestCase):
 
         # Verify LLMService methods were called
         self.assertTrue(mock_llm_service_instance.is_available.called)
+        # Check if get_chat_completion was called the correct number of times
+        # It should be called once for each document to get keyphrases
         self.assertEqual(mock_llm_service_instance.get_chat_completion.call_count, len(MOCK_DOCUMENTS), "LLM not called for each document.")
         # Embedding should be called for each document's joined text
         self.assertEqual(mock_llm_service_instance.get_embedding.call_count, len(MOCK_DOCUMENTS), "Embedding not called for each joined text.")

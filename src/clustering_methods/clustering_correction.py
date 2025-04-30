@@ -1,243 +1,571 @@
 import numpy as np
-from sklearn.metrics.pairwise import euclidean_distances, cosine_similarity # cosine_similarity for LLM simulation if needed
-from sklearn.cluster import KMeans # For initial clustering if needed by this method
+import os
+import pandas as pd
+import time # Import time for potential timing
+from sklearn.metrics import f1_score
+from scipy.optimize import linear_sum_assignment as hungarian
+from sklearn.cluster import KMeans # Needed to find centroids based on initial assignments
+from sklearn.metrics.pairwise import euclidean_distances, cosine_similarity # Needed for distances
 from langchain_core.prompts import ChatPromptTemplate
-from src.llm_service import LLMService # Import LLM service
-from typing import List, Tuple
+from src.llm_service import LLMService
+from typing import List, Dict, Any, Tuple
+import concurrent.futures # Import for parallel execution
+from tqdm import tqdm # Import tqdm for the loading bar
 
 
-def correct_clustering_with_llm(
-    documents: List[str],
-    features: np.ndarray,
-    initial_assignments: np.ndarray,
-    n_clusters: int, # Pass n_clusters explicitly for clarity
-    llm_service: LLMService, # Accept LLMService instance
-    correction_prompt_template: str,
-    k_low_confidence: int = 500,
-    num_candidate_clusters: int = 4
-) -> np.ndarray | None:
+# Define the path for the metrics CSV file (use the same path as other run scripts)
+METRICS_CSV_PATH = "clustering_metrics_results.csv"
+
+# Replicate the metrics calculation helper function
+def calculate_clustering_metrics(y_true: np.ndarray, y_pred: np.ndarray):
     """
-    Implements correcting an existing clustering using an LLM (Section 2.3).
+    Calculates clustering metrics (Accuracy, Macro F1, Micro F1) by first
+    finding the optimal mapping between predicted and true labels using the
+    Hungarian algorithm, replicating the logic from cluster_acc.
 
     Args:
-        documents: List of original document texts.
-        features: Original document embeddings (NumPy array).
-        initial_assignments: Initial cluster assignments (NumPy array).
-        n_clusters: The total number of clusters expected (including potential empty ones from initial run).
-        llm_service: An initialized LLMService instance.
-        correction_prompt_template: A string template for correction decisions.
-                                    Should include placeholders for the point's text
-                                    and the representative's text.
-                                    Example: "Should the following text snippet be in the same cluster as this representative text? Respond with YES or NO.\nSnippet: {point_text}\nRepresentative: {representative_text}"
-        k_low_confidence: The number of lowest-confidence points to consider for correction.
-        num_candidate_clusters: The number of nearest clusters to consider as alternatives.
+        y_true: True labels (NumPy array).
+        y_pred: Predicted assignments (NumPy array).
 
     Returns:
-        A NumPy array of corrected cluster assignments, or None if processing fails.
+        A tuple containing (Accuracy, Macro F1, Micro F1),
+        or (None, None, None) if calculation fails.
+    """
+    if len(y_pred) != len(y_true):
+        print("Error: Predicted assignments and true labels must have the same length for metric calculation.")
+        return None, None, None
+
+    # Filter out any placeholder assignments (like -1 or -2 for failed documents) if they exist
+    valid_indices = y_pred >= 0 # Assuming valid assignments are >= 0
+    y_true_valid = y_true[valid_indices]
+    y_pred_valid = y_pred[valid_indices]
+
+    if len(y_pred_valid) == 0:
+         print("Warning: No valid predicted assignments found for metric calculation.")
+         return None, None, None
+
+
+    # Replicate contingency matrix building and Hungarian algorithm from cluster_acc
+    # Ensure unique labels/assignments are correctly identified from the valid subset
+    true_labels_unique_valid = np.unique(y_true_valid)
+    pred_assignments_unique_valid = np.unique(y_pred_valid)
+
+    n_true_classes_valid = len(true_labels_unique_valid)
+    n_pred_clusters_valid = len(pred_assignments_unique_valid)
+
+    if n_true_classes_valid == 0 or n_pred_clusters_valid == 0:
+         return None, None, None
+
+
+    true_label_to_matrix_idx = {label: i for i, label in enumerate(true_labels_unique_valid)}
+    pred_assign_to_matrix_idx = {assign: i for assign, i in enumerate(pred_assignments_unique_valid)}
+
+    w = np.zeros((n_pred_clusters_valid, n_true_classes_valid), dtype=np.int64)
+
+    # Populate the contingency matrix based on valid assignments
+    for i in range(len(y_pred_valid)):
+        pred_assign = y_pred_valid[i]
+        true_label = y_true_valid[i]
+        w[pred_assign_to_matrix_idx[pred_assign], true_label_to_matrix_idx[true_label]] += 1
+
+    try:
+         row_ind, col_ind = hungarian(w.max() - w)
+    except Exception as e:
+         print(f"Error running Hungarian algorithm during metric calculation: {e}")
+         return None, None, None
+
+    # Create mapping from matrix index back to original label/assignment ID
+    matrix_idx_to_pred_assign = {i: assign for assign, i in pred_assign_to_matrix_idx.items()}
+    matrix_idx_to_true_label = {i: label for label, i in true_label_to_matrix_idx.items()}
+
+    # Create the mapped assignments array for the *valid* subset
+    mapped_assignments_valid = np.full(len(y_pred_valid), -2, dtype=np.int64) # Use -2 for placeholder
+
+    # Apply the optimal mapping to the valid predicted assignments
+    pred_assign_map = {matrix_idx_to_pred_assign[r]: matrix_idx_to_true_label[c] for r, c in zip(row_ind, col_ind)}
+
+    for i in range(len(y_pred_valid)):
+        original_pred_assign = y_pred_valid[i]
+        # Map the predicted assignment ID using the optimal mapping
+        mapped_assignments_valid[i] = pred_assign_map.get(original_pred_assign, -2) # Use -2 if predicted ID wasn't in mapping
+
+    # Calculate Accuracy on the full dataset vs true labels
+    # We need the full mapped_assignments array for this.
+    full_mapped_assignments = np.full(y_pred.shape, -2, dtype=np.int64) # Use -2 for placeholder
+    full_mapped_assignments[valid_indices] = mapped_assignments_valid # Place mapped valid assignments
+
+    correct_count = np.sum(full_mapped_assignments == y_true)
+    accuracy = correct_count * 1.0 / y_true.size
+
+
+    # Calculate Macro and Micro F1 using the MAPPED assignments VALID subset
+    # F1 metrics are best calculated on the subset that has valid predictions and corresponding true labels.
+    macro_f1 = None
+    micro_f1 = None
+
+    if len(mapped_assignments_valid) > 0 and len(np.unique(y_true_valid)) > 0:
+        try:
+            macro_f1 = f1_score(y_true_valid, mapped_assignments_valid, average='macro', zero_division=0)
+            micro_f1 = f1_score(y_true_valid, mapped_assignments_valid, average='micro', zero_division=0)
+
+        except Exception as e:
+            print(f"Error calculating F1 scores on valid subset: {e}")
+
+    return accuracy, macro_f1, micro_f1
+
+
+# Helper to find cluster centroids and representatives (closest document to centroid)
+def find_cluster_info(features: np.ndarray, assignments: np.ndarray, documents: List[str], n_clusters: int) -> Tuple[np.ndarray, Dict[int, int]]:
+    """
+    Finds cluster centroids and the index of the document closest to each centroid
+    for clusters that have at least one assigned document.
+    """
+    centroids = np.zeros((n_clusters, features.shape[1]))
+    representative_doc_indices: Dict[int, int] = {}
+
+    for cluster_id in range(n_clusters):
+        # Consider only documents assigned to this cluster (and are valid assignments >= 0)
+        cluster_points_indices = np.where(assignments == cluster_id)[0]
+        if len(cluster_points_indices) > 0:
+            cluster_points = features[cluster_points_indices]
+            centroid = np.mean(cluster_points, axis=0)
+            centroids[cluster_id] = centroid
+
+            # Find document closest to the centroid within this cluster's points
+            distances_to_centroid = euclidean_distances([centroid], cluster_points)
+            closest_point_index_in_subset = np.argmin(distances_to_centroid)
+            original_doc_index = cluster_points_indices[closest_point_index_in_subset]
+            representative_doc_indices[cluster_id] = original_doc_index
+        # If a cluster is empty in initial assignments, its centroid remains zero, and it won't have a representative
+
+    return centroids, representative_doc_indices
+
+
+# Function to identify low-confidence points based on the paper's margin criteria
+def identify_low_confidence_points(features: np.ndarray, assignments: np.ndarray, centroids: np.ndarray, n_clusters: int, k_low_confidence: int) -> List[int]:
+    """
+    Identifies the top k points with the least margin between the nearest and
+    second-nearest clusters (including the assigned cluster).
+
+    Args:
+        features: Document embeddings.
+        assignments: Initial cluster assignments.
+        centroids: Cluster centroids.
+        n_clusters: Total number of clusters.
+        k_low_confidence: Number of low-confidence points to select.
+
+    Returns:
+        A list of original document indices identified as low-confidence.
+    """
+    n_samples = features.shape[0]
+    margins = np.full(n_samples, -np.inf) # Initialize margins; larger margin means higher confidence
+
+    # Calculate distances to all centroids for all points
+    distances_to_all_centroids = euclidean_distances(features, centroids)
+
+    for i in range(n_samples):
+        assigned_cluster = assignments[i]
+        # Skip documents that weren't assigned or had invalid initial assignments
+        if assigned_cluster < 0 or assigned_cluster >= n_clusters:
+             continue
+
+        # Get distances from this point to all centroids
+        dists = distances_to_all_centroids[i, :]
+
+        # Sort distances to find nearest and second nearest *among all clusters*
+        # Ensure there are at least two distinct distances to avoid index errors
+        unique_dists = np.unique(dists)
+        if len(unique_dists) < 2:
+             # Cannot calculate margin if less than 2 distinct distances
+             continue
+
+
+        sorted_dist_indices = np.argsort(dists)
+        # The nearest is sorted_dist_indices[0], the second nearest is sorted_dist_indices[1]
+        nearest_centroid_dist = dists[sorted_dist_indices[0]]
+        second_nearest_centroid_dist = dists[sorted_dist_indices[1]]
+
+        # The paper defines margin as "between the nearest and second-nearest clusters"
+        # This implies the difference in distance: second_nearest_dist - nearest_dist.
+        # Points close to a decision boundary will have a small margin.
+        margin = second_nearest_centroid_dist - nearest_centroid_dist
+        margins[i] = margin
+
+    # Get indices of points with finite margins (successfully processed)
+    valid_margin_indices = np.isfinite(margins)
+    if np.sum(valid_margin_indices) == 0:
+         print("Warning: No points with finite margins found for low-confidence identification.")
+         return []
+
+    # Sort indices based on margin (ascending, smallest margin first)
+    sorted_indices_in_subset = np.argsort(margins[valid_margin_indices])
+    # Get the original indices of the points with the smallest margins
+    low_confidence_original_indices = np.where(valid_margin_indices)[0][sorted_indices_in_subset]
+
+    # Return the top k low-confidence points
+    return low_confidence_original_indices[:k_low_confidence].tolist()
+
+# Helper function to process a single low-confidence point with LLM queries
+# Returns a tuple containing the assignment result and a list of query data dictionaries
+def process_low_confidence_point(
+    doc_index: int,
+    document_text: str,
+    current_assignment: int,
+    features: np.ndarray,
+    centroids: np.ndarray,
+    representative_doc_indices: Dict[int, int],
+    n_clusters: int,
+    llm_service: LLMService,
+    correction_prompt_template_langchain: ChatPromptTemplate,
+    num_candidate_clusters: int,
+    documents: List[str] # Pass full documents list to get representative text
+) -> Tuple[int, int, int, List[Dict[str, Any]]]: # Returns (original_doc_index, old_assignment, new_assignment, query_data_list)
+    """
+    Processes a single low-confidence document using the two-step LLM query process.
+    Returns the original document index, its old assignment, the new assignment,
+    and a list of dictionaries containing data for each LLM query made for this point.
+    Returns old_assignment for new_assignment if no correction occurs or fails.
+    The query data is simplified to include only prompt, answer, and action.
+    """
+    # print(f"  Processing low-confidence point (Document {doc_index})...") # Optional verbose print
+
+    query_data_list: List[Dict[str, Any]] = [] # List to store query data for this point
+    final_assignment = current_assignment # Initialize final assignment
+
+    # Skip if the initial assignment was invalid (-1) - should be handled before calling this helper
+    # if current_assignment < 0 or current_assignment >= n_clusters:
+    #      return (doc_index, current_assignment, current_assignment, query_data_list) # Return original if invalid
+
+    # Get representative text for the currently assigned cluster
+    assigned_cluster_rep_index = representative_doc_indices.get(current_assignment)
+    if assigned_cluster_rep_index is None:
+         print(f"  Skipping document {doc_index}: No representative found for assigned cluster {current_assignment}.")
+         # Log this skip in query data? Maybe add a status for the point itself rather than per query
+         return (doc_index, current_assignment, current_assignment, query_data_list) # Return original if no representative
+
+
+    assigned_cluster_rep_document = documents[assigned_cluster_rep_index]
+
+    # --- Step 1: First LLM Query - Is current assignment correct? ---
+    prompt_q1_text = correction_prompt_template_langchain.format(
+        document_text=document_text,
+        rep_doc_text=assigned_cluster_rep_document,
+        query_type="is_linked_to_assigned"
+    )
+
+    llm_response_q1 = llm_service.get_chat_completion(prompt_q1_text)
+    llm_response_q1_cleaned = llm_response_q1.strip().upper()
+
+    # Collect data for Query 1 (Simplified)
+    query_data_list.append({
+        "document_index": doc_index, # Keep index for reference
+        "full_prompt": prompt_q1_text, # Keep the full prompt
+        "llm_answer": llm_response_q1_cleaned, # LLM's cleaned answer
+        "resulting_action": "Evaluated Current Assignment", # Placeholder, updated later
+    })
+
+
+    # If LLM predicts current assignment is *not* correct
+    if llm_response_q1_cleaned != "YES":
+        # Update the action for Query 1
+        query_data_list[-1]["resulting_action"] = "LLM Said NO (Checking Candidates)"
+
+        # --- Step 2: Second LLM Query - Which candidate cluster? ---
+        # Find the next 'num_candidate_clusters' nearest clusters *excluding* the assigned one
+        distances_to_all_centroids = euclidean_distances([features[doc_index]], centroids)[0]
+        sorted_centroid_indices = np.argsort(distances_to_all_centroids)
+
+        candidate_cluster_ids = []
+        for c_id in sorted_centroid_indices:
+             if c_id != current_assignment and len(candidate_cluster_ids) < num_candidate_clusters:
+                  # Ensure the candidate cluster actually has a representative
+                  if c_id not in representative_doc_indices:
+                       continue # Skip this candidate if no representative
+
+                  candidate_cluster_ids.append(c_id)
+
+             if len(candidate_cluster_ids) == num_candidate_clusters:
+                  break # Found enough candidates
+
+
+        # Ensure we actually found candidate clusters with representatives
+        if not candidate_cluster_ids:
+             # print(f"  Warning: Could not find {num_candidate_clusters} candidate clusters with representatives for document {doc_index}.") # Optional warning
+             query_data_list[-1]["resulting_action"] = "LLM Said NO (No Candidates Found)" # Update action for Q1 failure
+             return (doc_index, current_assignment, current_assignment, query_data_list) # Return original if no candidates found
+
+
+        # --- LLM Query per Candidate ---
+        reassigned_this_point = False
+        for candidate_c_id in candidate_cluster_ids:
+            # Get representative document text for the candidate cluster
+            candidate_cluster_rep_index = representative_doc_indices.get(candidate_c_id)
+            # We already checked if representative exists when building candidate_cluster_ids, but double check
+            if candidate_cluster_rep_index is None:
+                 continue # Skip this candidate
+
+            candidate_cluster_rep_document = documents[candidate_cluster_rep_index]
+
+            prompt_q2_candidate_text = correction_prompt_template_langchain.format(
+                document_text=document_text,
+                rep_doc_text=candidate_cluster_rep_document,
+                query_type=f"is_linked_to_candidate_{candidate_c_id}"
+            )
+
+            llm_response_q2_candidate = llm_service.get_chat_completion(prompt_q2_candidate_text)
+            llm_response_q2_candidate_cleaned = llm_response_q2_candidate.strip().upper()
+
+            # Collect data for this candidate query (Step 2 - Simplified)
+            query_data_list.append({
+                "document_index": doc_index, # Keep index for reference
+                "full_prompt": prompt_q2_candidate_text, # Keep the full prompt
+                "llm_answer": llm_response_q2_candidate_cleaned, # LLM's cleaned answer
+                "resulting_action": "Evaluated Candidate", # Placeholder, updated later
+            })
+
+
+            # If LLM responds positively for this candidate
+            if llm_response_q2_candidate_cleaned == "YES":
+                # Reassign the point to this candidate cluster
+                final_assignment = candidate_c_id # Update final assignment
+                reassigned_this_point = True
+                # print(f"  Point {doc_index} reassigned from cluster {current_assignment} to {candidate_c_id}.") # Optional print
+                query_data_list[-1]["resulting_action"] = f"LLM Said YES (Reassigned to {candidate_c_id})" # Update action for this query
+                break # Stop checking other candidates once reassigned
+
+
+        # If the point was not reassigned after checking all candidates
+        if not reassigned_this_point:
+            # print(f"  Point {doc_index} remains in cluster {current_assignment} (no positive link to candidates).") # Optional print
+            # Update the action for any candidate queries that didn't result in reassignment
+            # FIX: Check if resulting_action is still the placeholder before updating
+            for qd in query_data_list:
+                 # Only update if it's a candidate query log AND it wasn't already marked as a successful reassignment
+                 if qd.get("resulting_action") == "Evaluated Candidate":
+                      qd["resulting_action"] = "LLM Said NO (Remains in Original)"
+
+
+    else:
+        # If LLM predicted current assignment *is* correct (Q1 response was YES)
+        # print(f"  Point {doc_index} confirmed in cluster {current_assignment} by LLM.") # Optional print
+        query_data_list[-1]["resulting_action"] = "LLM Said YES (Remains in Original)" # Update action for Q1 success
+
+
+    return (doc_index, current_assignment, final_assignment, query_data_list) # Return original index, old, new assignment, and query data list
+
+
+# The main function for clustering correction (Multithreaded)
+def cluster_via_correction(
+    documents: List[str],
+    features: np.ndarray,
+    initial_assignments: np.ndarray, # Assignments from initial clustering (e.g., Naive KMeans)
+    labels_np: np.ndarray, # True labels for evaluation
+    n_clusters: int,
+    llm_service: LLMService | None, # Allow llm_service to be None
+    correction_prompt_template: str, # Single template for both query types
+    k_low_confidence: int, # Number of low-confidence points to consider
+    num_candidate_clusters: int, # Number of nearest clusters to offer as candidates (paper uses 4)
+    correction_queries_output_csv_path: str = "correction_queries_output.csv" # Add path for saving queries
+) -> np.ndarray | None:
+    """
+    Implements clustering correction using a two-step LLM querying process
+    for low-confidence points, based on the paper's description.
+    Uses multithreading for LLM calls.
+    Calculates and saves metrics to CSV, and saves LLM queries/responses to a separate CSV
+    with simplified data.
     """
     print("\n--- Running Clustering Correction with LLM ---")
-    if not llm_service.is_available():
-        print("LLMService is not available. Cannot run clustering correction.")
-        return None
-
+    method_status = "Failed" # Default status
+    # Create a mutable copy of initial assignments to modify
     corrected_assignments = np.copy(initial_assignments)
-    n_samples = len(documents)
-    unique_clusters = np.unique(initial_assignments)
 
+    # --- Initial Checks ---
+    if llm_service is None or not llm_service.is_available():
+        print("LLMService is not available. Cannot run clustering correction.")
+        method_status = "Skipped (LLM Service Missing)"
+    elif len(documents) == 0 or features.size == 0 or len(labels_np) == 0 or len(documents) != features.shape[0] or len(documents) != len(labels_np) or len(documents) != len(initial_assignments):
+         print("Input data (documents, features, labels, or initial assignments) is missing or inconsistent.")
+         method_status = "Failed (Invalid Input Data)"
+    elif k_low_confidence <= 0:
+         print("k_low_confidence must be positive for Clustering Correction.")
+         method_status = "Skipped (Invalid k_low_confidence)"
+    elif num_candidate_clusters <= 0:
+         print("num_candidate_clusters must be positive for Clustering Correction.")
+         method_status = "Skipped (Invalid num_candidate_clusters)"
+    # Check if initial assignments seem plausible (e.g., not all -1)
+    elif np.all(initial_assignments < 0):
+         print("Initial assignments contain no valid assignments. Cannot run correction.")
+         method_status = "Skipped (Invalid Initial Assignments)"
 
-    # Exclude noise cluster if present and identify valid cluster IDs
-    valid_cluster_ids = [c for c in unique_clusters if c != -1]
-    if not valid_cluster_ids:
-        print("Only noise points or no clusters found initially. Skipping correction.")
-        return corrected_assignments
-    n_valid_clusters = len(valid_cluster_ids)
-
-    if n_valid_clusters <= 1:
-        print("Only one valid cluster found initially. Skipping correction.")
-        return corrected_assignments
-
-
-    # Define Langchain prompt template
-    prompt_template = ChatPromptTemplate.from_template(correction_prompt_template)
-
-    # 1. Find cluster centroids and representatives
-    # Use the full range of n_clusters for centroids array size, even if some are empty
-    # This helps if original assignments were 0, 1, 3 (cluster 2 was empty)
-    centroids = np.zeros((n_clusters, features.shape[1]))
-    representatives_indices = {}
-    # Map cluster ID to its index in the centroids/valid_cluster_ids arrays
-    # We need a mapping from the original cluster ID (0 to n_clusters-1)
-    # to an index if we only store centroids for non-empty clusters.
-    # Let's simplify and use the cluster ID directly as index in centroids if possible,
-    # filling only for non-empty clusters.
-
-    print("Finding cluster centroids and representatives...")
-    for cluster_id in range(n_clusters): # Iterate through all potential cluster IDs
-        if cluster_id not in valid_cluster_ids:
-             # print(f"  Cluster {cluster_id} is empty in initial assignments.")
-             continue # Skip empty clusters
-
-        points_in_cluster_indices = np.where(initial_assignments == cluster_id)[0]
-        if len(points_in_cluster_indices) > 0:
-            cluster_features = features[points_in_cluster_indices]
-            centroid = np.mean(cluster_features, axis=0)
-            centroids[cluster_id] = centroid # Store centroid at index = cluster_id
-
-            # Find representative: point nearest to the centroid
-            # Calculate distances from centroid to all points in the cluster
-            distances_to_centroid = euclidean_distances(centroid.reshape(1, -1), cluster_features)[0]
-            nearest_point_in_cluster_index = points_in_cluster_indices[np.argmin(distances_to_centroid)]
-            representatives_indices[cluster_id] = nearest_point_in_cluster_index
-        else:
-             # This case should be caught by the valid_cluster_ids check, but as safety
-             print(f"Warning: Cluster {cluster_id} is in valid_cluster_ids but appears empty.")
-
-
-    # Ensure all valid clusters in initial assignments have representatives
-    valid_cluster_ids_with_reps = list(representatives_indices.keys())
-    if len(valid_cluster_ids_with_reps) != n_valid_clusters:
-         print("Warning: Some valid clusters do not have representatives. These will be excluded from correction logic.")
-
-
-    # 2. Identify low-confidence points
-    if not valid_cluster_ids_with_reps:
-         print("No clusters with representatives found. Skipping low-confidence point identification.")
-         low_confidence_point_indices = []
     else:
-        print("Identifying low-confidence points...")
-        # Calculate distance of each point to its assigned centroid and the second nearest centroid
-        # Need distances to all centroids WITH representatives for each point
-        centroid_matrix_for_dist = np.array([centroids[cid] for cid in valid_cluster_ids_with_reps]) # Use centroids at their cluster ID index
-        distances_to_all_valid_centroids = euclidean_distances(features, centroid_matrix_for_dist)
+        # --- Proceed with Method Logic if all checks pass ---
+        n_samples = len(documents)
+        initial_assignments_np = np.array(initial_assignments) # Ensure numpy array
 
-        confidence_margins = []
-        point_indices = [] # Store original indices of points being evaluated
+        # Calculate centroids and find representative documents based on initial assignments
+        print("Finding cluster centroids and representatives based on initial assignments...")
+        centroids, representative_doc_indices = find_cluster_info(features, initial_assignments_np, documents, n_clusters)
 
-        for i in range(n_samples):
-            current_assignment = initial_assignments[i]
-            # Only consider points assigned to valid clusters that have representatives
-            if current_assignment == -1 or current_assignment not in representatives_indices:
-                 continue
-
-            point_indices.append(i)
-
-            # Get distances to valid centroids with representatives
-            # Find the index of the current assignment within the list of valid cluster IDs with representatives
-            try:
-                assigned_cluster_rep_idx = valid_cluster_ids_with_reps.index(current_assignment)
-            except ValueError:
-                 # Should not happen based on the outer check, but as safety
-                 continue
+        # Ensure we have representatives for relevant clusters
+        if len(representative_doc_indices) < n_clusters:
+             print(f"Warning: Found representatives for only {len(representative_doc_indices)} out of {n_clusters} clusters.")
+             # This might happen if some clusters are empty in the initial assignments.
+             # We can proceed but need to handle cases where a representative isn't found.
 
 
-            dists = distances_to_all_valid_centroids[i]
+        print(f"Identifying top {k_low_confidence} low-confidence points...")
+        # Identify low-confidence points based on the paper's margin criteria
+        low_confidence_indices = identify_low_confidence_points(features, initial_assignments_np, centroids, n_clusters, k_low_confidence)
 
-            # Find distance to assigned cluster's centroid
-            dist_to_assigned_centroid = dists[assigned_cluster_rep_idx]
+        print(f"Identified {len(low_confidence_indices)} low-confidence points.")
 
-            # Find distance to the second nearest centroid
-            # Exclude the distance to the assigned centroid
-            dists_excluding_assigned = np.delete(dists, assigned_cluster_rep_idx)
-            if len(dists_excluding_assigned) > 0:
-                 dist_to_second_nearest_centroid = np.min(dists_excluding_assigned)
-                 margin = dist_to_second_nearest_centroid - dist_to_assigned_centroid
-                 confidence_margins.append(margin)
-            else:
-                 # Only one relevant cluster exists for this point, handle as high confidence
-                 confidence_margins.append(np.inf) # Infinite margin means very high confidence
-
-
-        if not confidence_margins:
-             print("Could not calculate confidence margins for any points. Skipping correction.")
-             low_confidence_point_indices = []
+        if not low_confidence_indices:
+            print("No low-confidence points identified. Skipping LLM correction process.")
+            method_status = "Completed (No Low Confidence Points)"
         else:
-            # Get indices of points with the lowest confidence margins
-            sorted_indices = np.argsort(confidence_margins)[:min(k_low_confidence, len(confidence_margins))]
-            low_confidence_point_indices = [point_indices[i] for i in sorted_indices]
+            print(f"Attempting to correct {len(low_confidence_indices)} low-confidence points using LLM queries in parallel...")
+            llm_calls_count = 0 # Counter for LLM calls (approximate with parallel)
+            points_reassigned_count = 0 # Counter for points that were reassigned
 
-        print(f"Identified {len(low_confidence_point_indices)} low-confidence points.")
+            correction_prompt_template_langchain = ChatPromptTemplate.from_template(correction_prompt_template)
 
-    # 3. Attempt to correct low-confidence points using LLM
-    print("Attempting to correct assignments for low-confidence points using LLM...")
-    corrected_count = 0
-    for i, point_idx in enumerate(low_confidence_point_indices):
-        original_assignment = corrected_assignments[point_idx]
-        point_text = documents[point_idx]
+            # Use ThreadPoolExecutor for parallel execution of LLM queries for low-confidence points
+            MAX_WORKERS = 20 # Adjust based on your machine and OpenAI rate limits (lower than keyphrase due to sequential queries per point)
+            print(f"Using {MAX_WORKERS} workers for parallel correction queries.")
 
-        # Re-check if original_assignment is still valid and has a representative (safety check)
-        if original_assignment == -1 or original_assignment not in representatives_indices:
-            # print(f"  Skipping point {point_idx}: Original assignment {original_assignment} is invalid or has no representative.")
-            continue
+            start_time = time.time() # Start timing correction process
 
+            # List to store results from parallel processing: (original_doc_index, old_assignment, new_assignment, query_data_list)
+            correction_results: List[Tuple[int, int, int, List[Dict[str, Any]]]] = []
+            all_query_data: List[Dict[str, Any]] = [] # List to collect all query data from all points
 
-        current_representative_idx = representatives_indices[original_assignment]
-        current_representative_text = documents[current_representative_idx]
+            with concurrent.futures.ThreadPoolExecutor(max_workers=MAX_WORKERS) as executor:
+                # Submit tasks for each low-confidence document index
+                future_to_doc_index = {
+                    executor.submit(
+                        process_low_confidence_point,
+                        doc_index,
+                        documents[doc_index],
+                        corrected_assignments[doc_index], # Pass the current assignment
+                        features,
+                        centroids,
+                        representative_doc_indices,
+                        n_clusters,
+                        llm_service,
+                        correction_prompt_template_langchain,
+                        num_candidate_clusters,
+                        documents # Pass documents list to helper
+                    ): doc_index for doc_index in low_confidence_indices
+                    # Filter out documents with invalid initial assignments before submitting
+                    if corrected_assignments[doc_index] >= 0 and corrected_assignments[doc_index] < n_clusters
+                }
 
-        # Ask LLM if the point should be linked to its current cluster's representative
-        prompt_current = ChatPromptTemplate.from_template(correction_prompt_template).format(point_text=point_text, representative_text=current_representative_text)
-        llm_response_current = llm_service.get_chat_completion(prompt_current).strip().upper()
-        # print(f"  Checking point {i+1}/{len(low_confidence_point_indices)} against current cluster {original_assignment}. Response: {llm_response_current}")
-
-
-        if llm_response_current == "NO":
-            # If LLM says NO to current cluster, consider alternatives
-            # print(f"  LLM says NO to current cluster {original_assignment}. Checking candidate clusters.")
-
-            # Find IDs of other valid clusters with representatives
-            other_valid_cluster_ids = [cid for cid in representatives_indices.keys() if cid != original_assignment]
-            if not other_valid_cluster_ids:
-                 # print("  No other valid clusters to consider.")
-                 continue
-
-            # Get distances from the point to all other valid centroids with representatives
-            other_centroids_matrix = np.array([centroids[cid] for cid in other_valid_cluster_ids])
-            if other_centroids_matrix.shape[0] == 0:
-                 # print("  No other valid clusters to consider (matrix empty).")
-                 continue
-
-            dists_to_other_centroids = euclidean_distances(features[point_idx].reshape(1, -1), other_centroids_matrix)[0]
-
-
-            # Get IDs of candidate clusters sorted by proximity
-            sorted_other_cluster_indices = np.argsort(dists_to_other_centroids)
-            candidate_cluster_ids = [other_valid_cluster_ids[k] for k in sorted_other_cluster_indices[:num_candidate_clusters]]
-
-            new_assignment = original_assignment # Default to keeping original
-            reassigned = False
-
-            # print(f"  Candidate clusters for point {point_idx}: {candidate_cluster_ids}")
-
-            for candidate_cluster_id in candidate_cluster_ids:
-                # Check if candidate cluster still has a representative (safety check)
-                if candidate_cluster_id not in representatives_indices:
-                    continue
-
-                candidate_representative_idx = representatives_indices[candidate_cluster_id]
-                candidate_representative_text = documents[candidate_representative_idx]
-
-                # Ask LLM if the point should be linked to the candidate cluster's representative
-                prompt_candidate = ChatPromptTemplate.from_template(correction_prompt_template).format(point_text=point_text, representative_text=candidate_representative_text)
-                llm_response_candidate = llm_service.get_chat_completion(prompt_candidate).strip().upper()
-                # print(f"    Checking against candidate cluster {candidate_cluster_id}. Response: {llm_response_candidate}")
+                # Wrap the as_completed iterator with tqdm for a progress bar
+                # The total is the number of tasks submitted (valid low-confidence points)
+                for future in tqdm(concurrent.futures.as_completed(future_to_doc_index), total=len(future_to_doc_index), desc="Correcting Assignments"):
+                    doc_index = future_to_doc_index[future]
+                    try:
+                        # Retrieve the result tuple (original_doc_index, old_assignment, new_assignment, query_data_list)
+                        result_tuple = future.result()
+                        correction_results.append(result_tuple)
+                        # Extend the main query data list with data from this point
+                        all_query_data.extend(result_tuple[3])
 
 
-                if llm_response_candidate == "YES":
-                    # LLM says YES to this candidate cluster
-                    new_assignment = candidate_cluster_id
-                    corrected_assignments[point_idx] = new_assignment
-                    corrected_count += 1
-                    print(f"  Point {point_idx} reassigned from cluster {original_assignment} to {new_assignment}.")
-                    reassigned = True
-                    break # Move to the next low-confidence point
-
-            # If loop finishes and the point was not reassigned
-            # if not reassigned:
-                 # print(f"  Point {point_idx} remains in original cluster {original_assignment} after checking candidates.")
+                    except Exception as exc:
+                        # Handle exceptions from the helper function
+                        print(f"\n--- Exception processing document {doc_index} during correction: {exc} ---")
+                        # The point's assignment will remain unchanged in corrected_assignments
 
 
-        # else: # LLM says YES to current cluster, keep assignment
-        #     pass # No change needed
+            end_time = time.time() # End timing correction process
+            print(f"Finished parallel correction processing. Time taken: {end_time - start_time:.2f} seconds.")
+
+            # --- Apply Corrections from Results ---
+            # Sort correction_results by original_doc_index to apply updates in order (optional but good practice)
+            correction_results.sort(key=lambda x: x[0])
+
+            for original_doc_index, old_assignment, new_assignment, _ in correction_results: # Ignore query_data_list here
+                 if new_assignment != old_assignment:
+                      corrected_assignments[original_doc_index] = new_assignment
+                      # points_reassigned_count += 1 # Increment counter if reassignment occurred
+
+            # Recalculate points_reassigned_count based on the actual changes made
+            points_reassigned_count = np.sum(corrected_assignments != initial_assignments_np)
 
 
-    print(f"\nFinished correction pass. {corrected_count} points were reassigned.")
-    return corrected_assignments
+            print(f"\nFinished correction pass. {points_reassigned_count} points were reassigned out of {len(low_confidence_indices)} low-confidence points considered.")
+            print(f"Total LLM queries made: {len(all_query_data)}") # Total queries is the length of the collected list
+
+            method_status = "Success" # Assume success if the pass completed
+
+        # --- Save Correction Queries to CSV ---
+        if all_query_data:
+            try:
+                df_queries = pd.DataFrame(all_query_data)
+                # Ensure directory exists
+                output_dir = os.path.dirname(correction_queries_output_csv_path)
+                if output_dir and not os.path.exists(output_dir):
+                     os.makedirs(output_dir)
+                df_queries.to_csv(correction_queries_output_csv_path, index=False)
+                print(f"\nCorrection queries and responses saved to {correction_queries_output_csv_path}")
+            except Exception as e:
+                print(f"\nError saving correction queries to CSV: {e}")
+        else:
+            print("\nNo correction query data collected to save.")
+
+
+    # --- Evaluate and Save Metrics to CSV ---
+    correction_accuracy = None
+    correction_macro_f1 = None
+    correction_micro_f1 = None
+
+    # Only attempt metric calculation if corrected_assignments were obtained and match label length
+    if corrected_assignments is not None and len(corrected_assignments) == len(labels_np):
+         try:
+             # Calculate metrics on the full dataset
+             accuracy, macro_f1, micro_f1 = calculate_clustering_metrics(labels_np, corrected_assignments)
+
+             correction_accuracy = accuracy
+             correction_macro_f1 = macro_f1
+             correction_micro_f1 = micro_f1
+
+             # Update status if evaluation was successful after clustering success
+             if method_status == "Success" and all(m is not None for m in [correction_accuracy, correction_macro_f1, correction_micro_f1]):
+                  pass # Keep status as Success
+             elif method_status == "Success": # Clustering succeeded, but eval failed
+                  method_status = "Completed (Eval Failed)" # Status indicates clustering worked but eval failed
+
+
+         except Exception as e:
+              print(f"Error during metrics calculation: {e}")
+              if method_status == "Success": # Clustering succeeded, but eval failed
+                   method_status = "Completed (Eval Failed)"
+              else: # Clustering failed earlier
+                   pass # Keep the earlier failed status
+
+
+    # --- Save Metrics to CSV ---
+    metrics_data = {
+        'Method': 'LLM Correction', # Use 'LLM Correction' as method name
+        'Status': method_status,
+        'Accuracy': correction_accuracy,
+        'Macro_F1': correction_macro_f1,
+        'Micro_F1': correction_micro_f1
+    }
+
+    try:
+        df_metrics = pd.DataFrame([metrics_data])
+        # Append logic remains the same - check if file exists to write header
+        if not os.path.exists(METRICS_CSV_PATH):
+            df_metrics.to_csv(METRICS_CSV_PATH, index=False, mode='w', header=True)
+            print(f"\nCreated {METRICS_CSV_PATH} and saved metrics.")
+        else:
+            df_metrics.to_csv(METRICS_CSV_PATH, index=False, mode='a', header=False)
+            print(f"\nAppended metrics to {METRICS_CSV_PATH}.")
+
+    except Exception as e:
+        print(f"\nError saving metrics to CSV: {e}")
+
+
+    return corrected_assignments # Return the corrected assignments
