@@ -1,0 +1,4 @@
+.venv_project/
+__pycache__/
+*.pkl
+.env
