@@ -28,7 +28,8 @@ except ImportError:
     cluster_acc = None
 
 
-def run_clustering_correction_experiment():
+def run_clustering_correction_experiment(dataset_name):
+    dataset_name = dataset_name
     print("\n--- Running Clustering Correction Experiment ---")
 
     # --- Configuration and Setup ---
@@ -80,7 +81,7 @@ def run_clustering_correction_experiment():
     # --- Load Data ---
     print("\nLoading data and embeddings...")
     # Pass the embedding model to load_dataset for consistent embeddings
-    features, labels, documents = load_dataset(cache_path=DATA_CACHE_PATH, embedding_model=embedding_model_instance)
+    features, labels, documents = load_dataset(dataset_name=dataset_name,cache_path=DATA_CACHE_PATH, embedding_model=embedding_model_instance)
 
     if features.size == 0 or len(labels) == 0 or not documents:
         print("Data loading failed or produced no data. Cannot proceed.")
@@ -124,7 +125,7 @@ def run_clustering_correction_experiment():
     print(f"\nRunning Method 3: Clustering Correction...")
     # Pass the true labels (labels_np) and the initial_assignments explicitly to the function
     corrected_assignments = cluster_via_correction(
-        documents, features, naive_assignments, labels_np, n_clusters, llm_service, # Pass all required data
+        dataset_name, documents, features, naive_assignments, labels_np, n_clusters, llm_service, # Pass all required data
         CORRECTION_PROMPT_TEMPLATE,
         k_low_confidence=CORRECTION_K_LOW_CONFIDENCE,
         num_candidate_clusters=CORRECTION_NUM_CANDIDATE_CLUSTERS
@@ -138,4 +139,11 @@ def run_clustering_correction_experiment():
 
 
 if __name__ == "__main__":
-    run_clustering_correction_experiment()
+    # You can specify the dataset name when calling the script
+    import sys
+    if len(sys.argv) > 1:
+        dataset_name = sys.argv[1]
+        run_clustering_correction_experiment(dataset_name)
+    else:
+        # Default to "tweet" dataset if none specified
+        run_clustering_correction_experiment("tweet")

@@ -4,7 +4,7 @@ import json # Still needed for potential error logging or inspection
 from typing import List, Any, Type
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_openai import OpenAIEmbeddings, ChatOpenAI
-from src.config import EMBEDDING_MODEL_NAME, GENERATION_MODEL_NAME
+from src.config import EMBEDDING_MODEL_NAME, GENERATION_MODEL_NAME, MOCKING_MODE
 from langchain_core.embeddings import Embeddings # Import Embeddings base class
 # REMOVED: from langchain_core.runnables import with_structured_output # Import for structured output (no longer needed for import)
 from pydantic import BaseModel, Field # Import for defining structured output schema
@@ -134,6 +134,8 @@ class LLMService:
         Gets a chat completion response from the generation model.
         Optionally returns a structured output if output_structure is provided.
         """
+        if MOCKING_MODE:
+            return "YES"
         if not self.is_available() or self.generation_model is None:
             print("LLMService generation model not available.")
             return "ERROR" if output_structure is None else None # Indicate failure based on expected return type

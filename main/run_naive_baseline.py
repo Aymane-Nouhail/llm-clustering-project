@@ -128,7 +128,15 @@ def calculate_clustering_metrics(y_true: np.ndarray, y_pred: np.ndarray, n_clust
         except Exception as e:
             print(f"Error calculating metrics on valid subset: {e}")
     
-    return accuracy, precision, recall, macro_f1, micro_f1, nmi, ari, mapped_assignments # Return all metrics
+        return {
+            "Accuracy": accuracy,
+            "Precision": precision,
+            "Recall": recall,
+            "Macro_F1": macro_f1,
+            "Micro_F1": micro_f1,
+            "NMI": nmi,
+            "ARI": ari
+        }
 
 def run_naive_baseline_experiment(dataset_name="tweet"):
     print(f"\n--- Running Naive KMeans Baseline Experiment on {dataset_name} dataset ---")
@@ -158,44 +166,27 @@ def run_naive_baseline_experiment(dataset_name="tweet"):
     print("\nRunning Naive KMeans...")
     naive_assignments = run_naive_kmeans(features, n_clusters)
     # --- Evaluate and Report ---
-    naive_accuracy = None
-    naive_precision = None
-    naive_recall = None
-    naive_macro_f1 = None
-    naive_micro_f1 = None
-    naive_nmi = None
-    naive_ari = None
     method_status = "Failed" # Default status
     if naive_assignments is not None:
         assignments_np = np.array(naive_assignments)
         # Calculate metrics using the helper function that handles mapping
         # Note: calculate_clustering_metrics assumes naive_assignments has the same length as labels
-        accuracy, precision, recall, macro_f1, micro_f1, nmi, ari, mapped_assignments = calculate_clustering_metrics(labels_np, assignments_np, n_clusters)
-        naive_accuracy = accuracy
-        naive_precision = precision
-        naive_recall = recall
-        naive_macro_f1 = macro_f1
-        naive_micro_f1 = micro_f1
-        naive_nmi = nmi
-        naive_ari = ari
-        if naive_accuracy is not None:
-             print(f"\n--- Naive KMeans Baseline Results for {dataset_name} dataset ---")
-             print(f"Accuracy: {naive_accuracy}")
-             if naive_precision is not None:
-                 print(f"Precision (on valid subset): {naive_precision}")
-             if naive_recall is not None:
-                 print(f"Recall (on valid subset): {naive_recall}")
-             # F1 scores are calculated on the valid subset by the helper
-             if naive_macro_f1 is not None:
-                 print(f"Macro F1 (on valid subset): {naive_macro_f1}")
-             if naive_micro_f1 is not None:
-                 print(f"Micro F1 (on valid subset): {naive_micro_f1}")
-             # Print NMI and ARI
-             if naive_nmi is not None:
-                 print(f"Normalized Mutual Information: {naive_nmi}")
-             if naive_ari is not None:
-                 print(f"Adjusted Rand Index: {naive_ari}")
-             method_status = "Success" if all(m is not None for m in [naive_accuracy, naive_precision, naive_recall, naive_macro_f1, naive_micro_f1, naive_nmi, naive_ari]) else "Completed (Partial Eval)"
+        metrics = calculate_clustering_metrics(labels_np, assignments_np, n_clusters)
+    # Print metrics
+        if metrics["Accuracy"] is not None:
+            print(f"\n--- Naive KMeans Baseline Results for {dataset_name} dataset ---")
+            print(f"Accuracy: {metrics['Accuracy']}")
+            
+            for metric_name in ["Precision", "Recall", "Macro_F1", "Micro_F1", "NMI", "ARI"]:
+                if metrics[metric_name] is not None:
+                    # Add special suffix for F1 and precision/recall metrics
+                    suffix = " (on valid subset)" if metric_name in ["Precision", "Recall", "Macro_F1", "Micro_F1"] else ""
+                    # Normalize metric name for display
+                    display_name = metric_name.replace("_", " ")
+                    print(f"{display_name}{suffix}: {metrics[metric_name]}")
+            
+            # Determine status based on metrics completeness
+            method_status = "Success" if all(v is not None for v in metrics.values()) else "Completed (Partial Eval)"
     else:
         print("\nNaive KMeans baseline failed.")
     # --- Save Metrics to CSV ---
@@ -203,13 +194,7 @@ def run_naive_baseline_experiment(dataset_name="tweet"):
         'Dataset': dataset_name,
         'Method': 'Naive KMeans',
         'Status': method_status,
-        'Accuracy': naive_accuracy,
-        'Precision': naive_precision,
-        'Recall': naive_recall,
-        'Macro_F1': naive_macro_f1,
-        'Micro_F1': naive_micro_f1,
-        'NMI': naive_nmi,
-        'ARI': naive_ari
+        **metrics
     }
     try:
         df_metrics = pd.DataFrame([metrics_data])

@@ -12,8 +12,8 @@ if not OPENAI_API_KEY:
 
 # Specify OpenAI Models to use
 EMBEDDING_MODEL_NAME = "text-embedding-ada-002" # Or a newer embedding model
-GENERATION_MODEL_NAME = "gpt-4.1-mini" # Or a suitable chat model
-
+GENERATION_MODEL_NAME = "gpt-4.1-nano" # Or a suitable chat model
+MOCKING_MODE =True
 # --- Clustering Parameters ---
 # Parameters for the different methods (can be moved or made method-specific)
 DEFAULT_N_CLUSTERS = 3 # Example, will be overridden by true clusters from data
