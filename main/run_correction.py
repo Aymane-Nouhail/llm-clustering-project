@@ -18,18 +18,11 @@ from src.llm_service import LLMService
 # Import the RENAMED function from src
 from src.clustering_methods.clustering_correction import cluster_via_correction
 from src.baselines import run_naive_kmeans
+from few_shot_clustering.eval_utils import cluster_acc
 
-
-# Import evaluation utility (assuming it's from few_shot_clustering)
-try:
-    from few_shot_clustering.eval_utils import cluster_acc
-except ImportError:
-    print("Warning: few_shot_clustering.eval_utils not found. Evaluation will not be possible.")
-    cluster_acc = None
 
 
 def run_clustering_correction_experiment(dataset_name):
-    dataset_name = dataset_name
     print("\n--- Running Clustering Correction Experiment ---")
 
     # --- Configuration and Setup ---

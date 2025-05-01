@@ -16,139 +16,23 @@ from src.data import load_dataset
 from src.llm_service import LLMService
 # Import the updated function from src
 from src.clustering_methods.pairwise_constraints import cluster_via_pairwise_constraints
-
 # Import evaluation utility (assuming it's from few_shot_clustering)
-try:
-    from few_shot_clustering.eval_utils import cluster_acc
-except ImportError:
-    print("Warning: few_shot_clustering.eval_utils not found. Evaluation will not be possible.")
-    cluster_acc = None
-
-# Check if PCKMeans is available (required by this method)
-try:
-    from active_semi_clustering.semi_supervised.pairwise_constraints import PCKMeans
-    print("PCKMeans from 'active-semi-clustering' imported successfully.")
-except ImportError:
-    print("PCKMeans from 'active-semi-clustering' not found.")
-    print("The pairwise constraints method cannot run without this library.")
-    PCKMeans = None # Define as None if not available
+from few_shot_clustering.eval_utils import cluster_acc
+from active_semi_clustering.semi_supervised.pairwise_constraints import PCKMeans
 
 
-def run_pairwise_constraints_experiment():
+
+def run_pairwise_constraints_experiment(dataset_name):
     print("\n--- Running Pairwise Constraints Experiment ---")
-
-    # Check if the required library is available first
-    if PCKMeans is None:
-         print("Skipping Pairwise Constraints Method: PCKMeans library not found.")
-         # This method saves its status to CSV internally even if skipped
-         # Call the function with None assignments to trigger the skipped status save
-         # Need dummy data structure to avoid errors in the called function if it tries to access docs/features/labels
-         dummy_docs = []
-         dummy_features = np.array([])
-         dummy_labels = np.array([])
-         # Define dummy query output path for the skipped case
-         dummy_query_csv_path = "dummy_pairwise_queries_output.csv"
-         cluster_via_pairwise_constraints(
-             dummy_docs, dummy_features, dummy_labels, None, # Pass dummy labels, None for llm_service
-             "", 0, "", # Dummy prompt, num_pairs, strategy
-             pairwise_queries_output_csv_path=dummy_query_csv_path # Pass dummy query path
-         )
-         # Optionally clean up dummy file if it was created
-         if os.path.exists(dummy_query_csv_path):
-             os.remove(dummy_query_csv_path)
-         return
-
-
     # --- Configuration and Setup ---
     api_key = OPENAI_API_KEY # Get API key from config (loads from env)
-    if not api_key:
-        print("OpenAI API Key not found. Please set the OPENAI_API_KEY environment variable or in a .env file.")
-        # Save failed status to CSV internally
-        # Need dummy data structure to avoid errors in the called function if it tries to access docs/features/labels
-        dummy_docs = []
-        dummy_features = np.array([])
-        dummy_labels = np.array([])
-        # Define dummy query output path for the failed case
-        dummy_query_csv_path = "dummy_pairwise_queries_output.csv"
-        cluster_via_pairwise_constraints(
-            dummy_docs, dummy_features, dummy_labels, None, # Pass dummy labels, None for llm_service
-            "", 0, "", # Dummy prompt, num_pairs, strategy
-            pairwise_queries_output_csv_path=dummy_query_csv_path # Pass dummy query path
-        )
-         # Optionally clean up dummy file if it was created
-        if os.path.exists(dummy_query_csv_path):
-            os.remove(dummy_query_csv_path)
-        return
-
-
     llm_service = LLMService(api_key) # Creates LLMService instance or it raises
-
-    # This check *uses* the instance:
-    if not llm_service.is_available():
-        print("LLM Service could not be initialized or is not available. Exiting.")
-        # Save failed status to CSV internally
-        # Need dummy data structure to avoid errors in the called function if it tries to access docs/features/labels
-        dummy_docs = []
-        dummy_features = np.array([])
-        dummy_labels = np.array([])
-        # Define dummy query output path for the failed case
-        dummy_query_csv_path = "dummy_pairwise_queries_output.csv"
-        cluster_via_pairwise_constraints(
-            dummy_docs, dummy_features, dummy_labels, llm_service, # Pass dummy labels, llm_service instance
-            "", 0, "", # Dummy prompt, num_pairs, strategy
-            pairwise_queries_output_csv_path=dummy_query_csv_path # Pass dummy query path
-        )
-         # Optionally clean up dummy file if it was created
-        if os.path.exists(dummy_query_csv_path):
-            os.remove(dummy_query_csv_path)
-        return
-
-
     # Get the embedding model instance from the service to pass to data loading
     embedding_model_instance = llm_service.get_embedding_model()
-    if embedding_model_instance is None:
-         print("Embedding model not available from LLM Service.")
-         # Save failed status to CSV internally
-         # Need dummy data structure to avoid errors in the called function if it tries to access docs/features/labels
-         dummy_docs = []
-         dummy_features = np.array([])
-         dummy_labels = np.array([])
-         # Define dummy query output path for the failed case
-         dummy_query_csv_path = "dummy_pairwise_queries_output.csv"
-         cluster_via_pairwise_constraints(
-             dummy_docs, dummy_features, dummy_labels, llm_service, # Pass dummy labels, llm_service instance
-             "", 0, "", # Dummy prompt, num_pairs, strategy
-             pairwise_queries_output_csv_path=dummy_query_csv_path # Pass dummy query path
-         )
-         # Optionally clean up dummy file if it was created
-         if os.path.exists(dummy_query_csv_path):
-            os.remove(dummy_query_csv_path)
-         return
-
-
     # --- Load Data ---
     print("\nLoading data and embeddings...")
     # Pass the embedding model to load_dataset for consistent embeddings
-    features, labels, documents = load_dataset(cache_path=DATA_CACHE_PATH, embedding_model=embedding_model_instance)
-
-    if features.size == 0 or len(labels) == 0 or not documents:
-        print("Data loading failed or produced no data. Cannot proceed.")
-        # Save failed status to CSV internally
-        # Need dummy data structure to trigger save logic in the called function
-        dummy_docs = []
-        dummy_features = np.array([])
-        dummy_labels = np.array([])
-        # Define dummy query output path for the failed case
-        dummy_query_csv_path = "dummy_pairwise_queries_output.csv"
-        cluster_via_pairwise_constraints(
-            dummy_docs, dummy_features, dummy_labels, llm_service, # Pass dummy labels (empty), llm_service instance
-            "", 0, "", # Dummy prompt, num_pairs, strategy
-            pairwise_queries_output_csv_path=dummy_query_csv_path # Pass dummy query path
-        )
-         # Optionally clean up dummy file if it was created
-        if os.path.exists(dummy_query_csv_path):
-            os.remove(dummy_query_csv_path)
-        return
+    features, labels, documents = load_dataset(dataset_name, cache_path=DATA_CACHE_PATH, embedding_model=embedding_model_instance)
 
     # Ensure labels are numpy array for scikit-learn metrics
     labels_np = np.array(labels)
@@ -163,7 +47,7 @@ def run_pairwise_constraints_experiment():
     PAIRWISE_QUERIES_CSV = "pairwise_queries_output.csv"
     # Pass the true labels (labels_np) and the query output path explicitly to the function
     pairwise_assignments = cluster_via_pairwise_constraints(
-        documents, features, labels_np, n_clusters, llm_service, # Pass labels_np, llm_service instance
+        dataset_name, documents, features, labels_np, n_clusters, llm_service, # Pass labels_np, llm_service instance
         PC_PROMPT_TEMPLATE,
         num_pairs_to_query=PC_NUM_PAIRS_TO_QUERY,
         constraint_selection_strategy=PC_CONSTRAINT_SELECTION_STRATEGY,
@@ -178,4 +62,9 @@ def run_pairwise_constraints_experiment():
 
 
 if __name__ == "__main__":
-    run_pairwise_constraints_experiment()
+    import sys
+    if len(sys.argv) > 1:
+        dataset_name = sys.argv[1]
+        run_pairwise_constraints_experiment(dataset_name)
+    else:
+        run_pairwise_constraints_experiment("tweet")
