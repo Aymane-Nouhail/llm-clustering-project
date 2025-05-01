@@ -17,6 +17,8 @@ import time
 import os
 # Import pandas for CSV handling
 import pandas as pd
+# Import tqdm for the loading bar
+from tqdm import tqdm
 
 
 # Define the helper function that processes a single document in parallel
@@ -59,8 +61,8 @@ def process_document_for_expansion(doc_index: int, document: str, features: np.n
 
         # Check if embedding was successful and has the correct dimension
         if not expansion_embedding_list or len(expansion_embedding_list) != original_embedding_dim:
-             print(f"  Doc {doc_index+1}: Embedding failed or dimension mismatch ({len(expansion_embedding_list)} vs {original_embedding_dim}). Expanded feature will be None.")
-             # expanded_feature remains None
+             # print(f"  Doc {doc_index+1}: Embedding failed or dimension mismatch ({len(expansion_embedding_list)} vs {original_embedding_dim}). Expanded feature will be None.") # Optional warning
+             pass # expanded_feature remains None
         else:
              expansion_embedding = np.array(expansion_embedding_list)
 
@@ -92,7 +94,7 @@ def process_document_for_expansion(doc_index: int, document: str, features: np.n
 
     except Exception as e:
         # Print a clear message if an exception occurs within a thread
-        print(f"--- Exception processing doc {doc_index+1}: {e} ---")
+        print(f"\n--- Exception processing doc {doc_index+1}: {e} ---") # Added newline for clarity
         # Return results indicating failure for the feature but keeping other info
         return (doc_index, document, [], None) # Indicate failure for feature but keep other info
 
@@ -128,7 +130,7 @@ def cluster_via_keyphrase_expansion(
     if not llm_service.is_available():
         print("LLMService is not available. Cannot run keyphrase expansion.")
         return None
-
+    documents = documents
     n_samples = len(documents)
     original_embedding_dim = features.shape[1]
 
@@ -140,8 +142,8 @@ def cluster_via_keyphrase_expansion(
     processed_results: List[Tuple[int, str, List[str], np.ndarray | None] | None] = [None] * n_samples
 
     # Define maximum workers for the thread pool
-    MAX_WORKERS = 40 # Adjust based on your machine and OpenAI rate limits
-
+    # REDUCED MAX_WORKERS for stability
+    MAX_WORKERS = 50 # Reduced from 40
     print(f"Processing {n_samples} documents in parallel with {MAX_WORKERS} workers...")
     start_time = time.time()
 
@@ -155,21 +157,25 @@ def cluster_via_keyphrase_expansion(
             ): i for i in range(n_samples)
         }
 
-        # Process results as they complete using as_completed iterator
-        for future in concurrent.futures.as_completed(future_to_doc_index):
+        print("Submitted tasks to executor. Waiting for completion...") # Added print
+
+        # Wrap the as_completed iterator with tqdm for a progress bar
+        # The total parameter is automatically inferred from the length of future_to_doc_index
+        for future in tqdm(concurrent.futures.as_completed(future_to_doc_index), total=n_samples, desc="Expanding Keyphrases"):
             doc_index = future_to_doc_index[future]
             try:
                 # Retrieve the result tuple from the completed future
-                result_tuple = future.result()
+                result_tuple = future.result() # This is where exceptions from the thread are raised
                 # Store the result tuple in the pre-allocated list at the correct index
                 processed_results[doc_index] = result_tuple
 
             except Exception as exc:
-                # This catches exceptions from the process_document_for_expansion helper
-                # (though the helper already catches and prints exceptions, this is a safety net)
-                print(f"  An unexpected error occurred for document {doc_index+1} during parallel processing: {exc}")
+                # This catches exceptions that were NOT handled inside process_document_for_expansion
+                # or exceptions specifically raised by future.result() (e.g., CancelledError)
+                print(f"\n--- UNHANDLED Exception retrieving result for document {doc_index+1}: {exc} ---")
                 # The entry in processed_results[doc_index] might still be None if the helper
-                # failed very early before setting the result.
+                # failed very early before setting the result. It will be handled later during collection.
+
 
     end_time = time.time()
     print(f"Finished parallel processing. Time taken: {end_time - start_time:.2f} seconds.")
@@ -198,7 +204,8 @@ def cluster_via_keyphrase_expansion(
                  successful_doc_indices.append(current_doc_index)
         else:
              # Handle cases where a document completely failed processing and its slot is None
-             print(f"Warning: Document {doc_index+1} had no processing result tuple.")
+             # print(f"Warning: Document {doc_index+1} had no processing result tuple.") # Optional warning
+             # Add entry for failed documents too, with empty keyphrases for logging
              data_for_csv.append({
                  "document_index": doc_index,
                  "document_text": documents[doc_index], # Use original document text
@@ -233,7 +240,7 @@ def cluster_via_keyphrase_expansion(
     # 6. Perform standard K-Means on expanded features
     print(f"\nRunning KMeans on expanded features...")
     try:
-        # Run KMeans on the successfully processed features
+        # Run KMeans on the successfully processed features subset
         kmeans = KMeans(n_clusters=n_clusters, random_state=0, n_init='auto')
         subset_assignments = kmeans.fit_predict(expanded_features)
         print("KMeans completed.")
