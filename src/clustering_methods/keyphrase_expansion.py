@@ -23,11 +23,11 @@ from tqdm import tqdm
 
 # Define the helper function that processes a single document in parallel
 # This function now returns a tuple containing processing results, including keyphrases and the expanded feature
-def process_document_for_expansion(doc_index: int, document: str, features: np.ndarray, llm_service: LLMService, prompt_template: ChatPromptTemplate, original_embedding_dim: int) -> Tuple[int, str, List[str], np.ndarray | None]:
+def process_document_for_expansion(doc_index: int, document: str, features: np.ndarray, llm_service: LLMService, prompt_template: ChatPromptTemplate, original_embedding_dim: int) -> Tuple[int, str, List[str], np.ndarray | None, np.ndarray | None]:
     """
     Helper function to process a single document for keyphrase expansion,
     intended to be run in a thread or asynchronously.
-    Returns (document_index, document_text, generated_keyphrases, expanded_feature_or_None).
+    Returns (document_index, document_text, generated_keyphrases, original_normalized_feature, expanded_feature_or_None).
     """
     # print(f"--- Starting processing for doc {doc_index+1} ---") # Uncomment for verbose logging per document
     try:
@@ -57,7 +57,8 @@ def process_document_for_expansion(doc_index: int, document: str, features: np.n
         expansion_embedding_list = llm_service.get_embedding(joined_text_for_encoding)
         # print(f"  Doc {doc_index+1}: LLM embedding call finished.") # Uncomment for verbose logging
 
-        expanded_feature = None # Initialize expanded_feature as None in case of embedding issues
+        original_feature_normalized = None
+        expansion_embedding_normalized = None
 
         # Check if embedding was successful and has the correct dimension
         if not expansion_embedding_list or len(expansion_embedding_list) != original_embedding_dim:
@@ -85,21 +86,21 @@ def process_document_for_expansion(doc_index: int, document: str, features: np.n
              else:
                   expansion_embedding_normalized = normalize(expansion_embedding_2d, axis=1, norm='l2').flatten()
 
-             # 5. Concatenate the normalized features
-             expanded_feature = np.concatenate([original_feature_normalized, expansion_embedding_normalized])
+             # 5. No longer concatenating the features
 
         # print(f"--- Finished processing for doc {doc_index+1} ---") # Uncomment for verbose logging
-        # Return the results as a tuple
-        return (doc_index, document, keyphrases, expanded_feature)
+        # Return the results as a tuple with separate original and expanded embeddings
+        return (doc_index, document, keyphrases, original_feature_normalized, expansion_embedding_normalized)
 
     except Exception as e:
         # Print a clear message if an exception occurs within a thread
         print(f"\n--- Exception processing doc {doc_index+1}: {e} ---") # Added newline for clarity
         # Return results indicating failure for the feature but keeping other info
-        return (doc_index, document, [], None) # Indicate failure for feature but keep other info
+        return (doc_index, document, [], None, None) # Indicate failure for features but keep other info
 
 
 # The main function for keyphrase expansion clustering
+# This function orchestrates the parallel processing and results handling
 # This function orchestrates the parallel processing and results handling
 def cluster_via_keyphrase_expansion(
     documents: List[str],
@@ -108,7 +109,7 @@ def cluster_via_keyphrase_expansion(
     llm_service: LLMService,
     keyphrase_prompt_template: str,
     keyphrase_output_csv_path: str = "keyphrase_expansions_output.csv" # Default CSV path parameter
-) -> np.ndarray | None:
+) -> Dict[str, np.ndarray | None]:
     """
     Implements clustering via LLM keyphrase expansion (Section 2.1),
     using parallel processing for LLM calls and saving generated keyphrases.
@@ -122,14 +123,17 @@ def cluster_via_keyphrase_expansion(
         keyphrase_output_csv_path: Path to save the generated keyphrases CSV.
 
     Returns:
-        A NumPy array of cluster assignments for the full original dataset length
-        (with -1 for documents that failed processing), or None if the overall
-        process fails or no documents are successfully processed.
+        A dictionary with different clustering results:
+        - 'concatenated': Clusters from concatenated embeddings 
+        - 'average': Clusters from averaged embeddings
+        - 'weighted_X': Clusters from weighted embeddings where X is the weight (0.1 to 1.0)
+        Each is a NumPy array of cluster assignments for the full original dataset length
+        (with -1 for documents that failed processing), or None if that method fails.
     """
     print("\n--- Running Clustering via LLM Keyphrase Expansion ---")
     if not llm_service.is_available():
         print("LLMService is not available. Cannot run keyphrase expansion.")
-        return None
+        return {'concatenated': None, 'average': None}
     documents = documents
     n_samples = len(documents)
     original_embedding_dim = features.shape[1]
@@ -138,8 +142,8 @@ def cluster_via_keyphrase_expansion(
     prompt_template = ChatPromptTemplate.from_template(keyphrase_prompt_template + "\nDocument: {document_text}")
 
     # Use a list to store results from parallel processing, pre-allocated
-    # Each element will store the tuple (index, doc, keyphrases, expanded_feature) or None initially
-    processed_results: List[Tuple[int, str, List[str], np.ndarray | None] | None] = [None] * n_samples
+    # Each element will store the tuple (index, doc, keyphrases, original_normalized, expanded_normalized) or None initially
+    processed_results: List[Tuple[int, str, List[str], np.ndarray | None, np.ndarray | None] | None] = [None] * n_samples
 
     # Define maximum workers for the thread pool
     # REDUCED MAX_WORKERS for stability
@@ -182,14 +186,15 @@ def cluster_via_keyphrase_expansion(
 
     # --- Collect Data for CSV and KMeans ---
     data_for_csv = []
-    successfully_processed_features = []
+    successfully_processed_original_features = []
+    successfully_processed_expanded_features = []
     successful_doc_indices = [] # Keep track of indices of successfully processed docs
 
     # Process results in the original document order by iterating through the pre-allocated list
     for doc_index in range(n_samples):
         result_tuple = processed_results[doc_index]
         if result_tuple is not None:
-             current_doc_index, document, keyphrases, expanded_feature = result_tuple
+             current_doc_index, document, keyphrases, original_normalized, expanded_normalized = result_tuple
 
              # Add data for CSV logging
              data_for_csv.append({
@@ -198,9 +203,10 @@ def cluster_via_keyphrase_expansion(
                  "generated_keyphrases": ", ".join(keyphrases) # Join keyphrases for CSV cell
              })
 
-             # If the feature was successfully generated (not None), add it for KMeans
-             if expanded_feature is not None:
-                 successfully_processed_features.append(expanded_feature)
+             # If both features were successfully generated (not None), add them for KMeans
+             if original_normalized is not None and expanded_normalized is not None:
+                 successfully_processed_original_features.append(original_normalized)
+                 successfully_processed_expanded_features.append(expanded_normalized)
                  successful_doc_indices.append(current_doc_index)
         else:
              # Handle cases where a document completely failed processing and its slot is None
@@ -230,32 +236,78 @@ def cluster_via_keyphrase_expansion(
 
 
     # --- Proceed with KMeans on successfully processed documents ---
-    if not successfully_processed_features:
+    if not successfully_processed_original_features or not successfully_processed_expanded_features:
         print("\nNo documents were successfully processed for keyphrase expansion. Cannot run KMeans.")
-        return None
+        return {'concatenated': None, 'average': None}
 
-    expanded_features = np.array(successfully_processed_features)
-    print(f"Proceeding with KMeans on {expanded_features.shape[0]} successfully expanded documents. Shape: {expanded_features.shape}")
+    original_features = np.array(successfully_processed_original_features)
+    expanded_features = np.array(successfully_processed_expanded_features)
+    
+    # Create the concatenated features
+    concatenated_features = np.hstack([original_features, expanded_features])
+    print(f"Proceeding with multiple KMeans approaches on {len(successful_doc_indices)} successfully expanded documents.")
+    
+    # Create averaged features (equal weight to both)
+    average_features = (original_features + expanded_features) / 2
+    
+    # Initialize results dictionary
+    results = {}
 
-    # 6. Perform standard K-Means on expanded features
-    print(f"\nRunning KMeans on expanded features...")
+    # Run KMeans with concatenated features
+    print(f"\nRunning KMeans on concatenated features...")
     try:
-        # Run KMeans on the successfully processed features subset
         kmeans = KMeans(n_clusters=n_clusters, random_state=0, n_init='auto')
-        subset_assignments = kmeans.fit_predict(expanded_features)
-        print("KMeans completed.")
-
+        subset_assignments = kmeans.fit_predict(concatenated_features)
+        
         # Map the subset assignments back to the full original dataset length
-        # Create a full assignments array, initialized with -1 for failed docs
         full_assignments = np.full(n_samples, -1, dtype=int)
-        # Place the subset assignments into their correct positions in the full array
         for i, original_idx in enumerate(successful_doc_indices):
              full_assignments[original_idx] = subset_assignments[i]
-
-        # Return the full assignments array, which can be evaluated against the full set of true labels
-        return full_assignments
-
+        
+        results['concatenated'] = full_assignments
     except Exception as e:
-        print(f"Error during KMeans clustering: {e}")
-        # Even if KMeans fails, the CSV was saved.
-        return None
+        print(f"Error during KMeans clustering with concatenated features: {e}")
+        results['concatenated'] = None
+
+    # Run KMeans with averaged features
+    print(f"\nRunning KMeans on averaged features...")
+    try:
+        kmeans = KMeans(n_clusters=n_clusters, random_state=0, n_init='auto')
+        subset_assignments = kmeans.fit_predict(average_features)
+        
+        full_assignments = np.full(n_samples, -1, dtype=int)
+        for i, original_idx in enumerate(successful_doc_indices):
+             full_assignments[original_idx] = subset_assignments[i]
+        
+        results['average'] = full_assignments
+    except Exception as e:
+        print(f"Error during KMeans clustering with averaged features: {e}")
+        results['average'] = None
+
+    # Run KMeans with weighted features for weights from 0.1 to 1.0
+    weight_values = [round(w, 1) for w in np.arange(0.1, 1.1, 0.1)]
+    for weight in weight_values:
+        weight_key = f"weighted_{weight}"
+        print(f"\nRunning KMeans on weighted features (weight={weight})...")
+        
+        try:
+            # Create weighted features (weight for expanded, 1-weight for original)
+            if weight == 1.0:
+                # Only use expanded features when weight is 1.0
+                weighted_features = expanded_features
+            else:
+                weighted_features = (1 - weight) * original_features + weight * expanded_features
+                
+            kmeans = KMeans(n_clusters=n_clusters, random_state=0, n_init='auto')
+            subset_assignments = kmeans.fit_predict(weighted_features)
+            
+            full_assignments = np.full(n_samples, -1, dtype=int)
+            for i, original_idx in enumerate(successful_doc_indices):
+                 full_assignments[original_idx] = subset_assignments[i]
+            
+            results[weight_key] = full_assignments
+        except Exception as e:
+            print(f"Error during KMeans clustering with weighted features (weight={weight}): {e}")
+            results[weight_key] = None
+
+    return results

@@ -116,12 +116,14 @@ def run_clustering_correction_experiment(dataset_name):
 
     # --- Run LLM Method 3: Clustering Correction ---
     print(f"\nRunning Method 3: Clustering Correction...")
+    CORRECTION_OUTPUT_CSV = dataset_name + "_correction_queries_output.csv"
     # Pass the true labels (labels_np) and the initial_assignments explicitly to the function
     corrected_assignments = cluster_via_correction(
         dataset_name, documents, features, naive_assignments, labels_np, n_clusters, llm_service, # Pass all required data
         CORRECTION_PROMPT_TEMPLATE,
         k_low_confidence=CORRECTION_K_LOW_CONFIDENCE,
-        num_candidate_clusters=CORRECTION_NUM_CANDIDATE_CLUSTERS
+        num_candidate_clusters=CORRECTION_NUM_CANDIDATE_CLUSTERS,
+        correction_queries_output_csv_path= CORRECTION_OUTPUT_CSV
     )
 
     # --- Report Final Status (Metrics saved internally by cluster_via_correction) ---

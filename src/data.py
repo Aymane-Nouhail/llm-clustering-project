@@ -69,7 +69,7 @@ def _load_tweet_data(dataset_split: str = 'test') -> Tuple[List[str], List[int],
     print(f"Loading cardiffnlp/tweet_eval (emotion) dataset from Hugging Face, split: {dataset_split}...")
     try:
         # Load the specific dataset and configuration
-        dataset = load_dataset_hf("cardiffnlp/tweet_eval", "emotion")
+        dataset = load_dataset_hf("cardiffnlp/tweet_eval", "sentiment")
         # Select the specified split
         if dataset_split not in dataset:
              print(f"Error: Split '{dataset_split}' not found in cardiffnlp/tweet_eval (emotion). Available splits: {list(dataset.keys())}")
@@ -113,10 +113,106 @@ def _load_bank77_data() -> Tuple[List[str], List[int], List[str]]:
         print("Please ensure 'datasets' library is installed.")
         return [], [], [] # Return empty on failure
 
+def _load_agnews_data(dataset_split: str = 'test') -> Tuple[List[str], List[int], List[str]]:
+    """Loads the AG News dataset (text, labels, documents).
+    
+    Args:
+        dataset_split: The dataset split to load ('train', 'test'). Defaults to 'test'.
+        
+    Returns:
+        A tuple containing (documents, labels_list, documents).
+    """
+    # Ensure dataset_split is a string, default to 'test' if None or not a string
+    if not isinstance(dataset_split, str) or not dataset_split:
+        print(f"Warning: Invalid dataset_split '{dataset_split}' provided for AG News dataset. Defaulting to 'test'.")
+        dataset_split = 'test'
+
+    print(f"Loading AG News dataset from Hugging Face, split: {dataset_split}...")
+    try:
+        # Load the dataset from Hugging Face
+        dataset = load_dataset_hf("ag_news")
+        
+        # Select the specified split
+        if dataset_split not in dataset:
+            print(f"Error: Split '{dataset_split}' not found in AG News. Available splits: {list(dataset.keys())}")
+            # If the requested split is not found, return empty data
+            return [], [], []
+        else:
+            data_split = dataset[dataset_split]
+
+        # Extract texts and labels
+        # AG News has 'text' field for content and 'label' for class (0-3)
+        texts = data_split["text"]
+        labels = data_split["label"]  # Labels are already integers (0-3)
+
+        documents = list(texts)
+        labels_list = list(labels)
+
+        print(f"Loaded {len(documents)} documents from AG News.")
+        print(f"Found {len(set(labels_list))} unique categories (World=0, Sports=1, Business=2, Sci/Tech=3).")
+        return documents, labels_list, documents  # For text datasets, raw_data is the documents list
+
+    except Exception as e:
+        print(f"Error loading AG News dataset from Hugging Face: {e}")
+        print("Please ensure 'datasets' library is installed and you have internet access.")
+        return [], [], []  # Return empty on failure
+
+def _load_hwu64_data(dataset_split: str = 'test') -> Tuple[List[str], List[int], List[str]]:
+    """Loads the HWU64 dataset (text, labels, documents).
+    
+    Args:
+        dataset_split: The dataset split to load ('train', 'test', 'val'). Defaults to 'test'.
+        
+    Returns:
+        A tuple containing (documents, labels_list, documents).
+    """
+    # Ensure dataset_split is a string, default to 'test' if None or not a string
+    if not isinstance(dataset_split, str) or not dataset_split:
+        print(f"Warning: Invalid dataset_split '{dataset_split}' provided for HWU64 dataset. Defaulting to 'test'.")
+        dataset_split = 'test'
+
+    print(f"Loading HWU64 'small' dataset from Hugging Face, split: {dataset_split}...")
+    try:
+        # Load the dataset from Hugging Face with the 'small' configuration
+        dataset = load_dataset_hf("DeepPavlov/hwu64", "default")
+        
+        # Select the specified split
+        if dataset_split not in dataset:
+            print(f"Error: Split '{dataset_split}' not found in HWU64 small. Available splits: {list(dataset.keys())}")
+            # If the requested split is not found, return empty data
+            return [], [], []
+        else:
+            data_split = dataset[dataset_split]
+
+        # Extract texts and labels
+        texts = data_split["utterance"]
+        labels = data_split["label"]
+        
+        # Convert string labels to integers
+        labels_list = []
+        intent_mapping = {}
+        current_map_id = 0
+        
+        for intent in labels:
+            if intent not in intent_mapping:
+                intent_mapping[intent] = current_map_id
+                current_map_id += 1
+            labels_list.append(intent_mapping[intent])
+        
+        documents = list(texts)
+
+        print(f"Loaded {len(documents)} documents from HWU64 small.")
+        print(f"Found {len(intent_mapping)} unique intents (clusters).")
+        return documents, labels_list, documents  # For text datasets, raw_data is the documents list
+
+    except Exception as e:
+        print(f"Error loading HWU64 small dataset from Hugging Face: {e}")
+        print("Please ensure 'datasets' library is installed and you have internet access.")
+        return [], [], []  # Return empty on failure
 
 # --- Main Dataset Loading Function ---
 
-def load_dataset(dataset_name: str, cache_path: str = None, embedding_model: Embeddings = None) -> Tuple[np.ndarray, np.ndarray, List[str]]:
+def load_dataset(dataset_name: str, cache_path: str = None, embedding_model: Embeddings = None, max_samples_per_class: int = None) -> Tuple[np.ndarray, np.ndarray, List[str]]:
     """
     Loads a specified dataset (iris, clinc, tweet, bank77), its labels, and documents.
     Generates/loads features using the provided embedding_model if not cached for text datasets.
@@ -128,6 +224,9 @@ def load_dataset(dataset_name: str, cache_path: str = None, embedding_model: Emb
         embedding_model: An initialized Langchain-compatible embedding model
                          to generate features if not cached. Required if cache_path is None
                          or cache doesn't exist for text datasets.
+        max_samples_per_class: Optional limit on the number of samples per class.
+                              If provided, will ensure balanced representation across classes.
+
 
     Returns:
         A tuple containing:
@@ -161,12 +260,61 @@ def load_dataset(dataset_name: str, cache_path: str = None, embedding_model: Emb
     elif dataset_name == "bank77":
         raw_data, labels_list, documents = _load_bank77_data()
         # For text datasets, raw_data is the documents list, features will be embeddings
+    elif dataset_name == "agnews":
+        raw_data, labels_list, documents = _load_agnews_data("test")
+    elif dataset_name == "hwu64":
+        raw_data, labels_list, documents = _load_hwu64_data("test")
 
     else:
         print(f"Unknown dataset name: {dataset_name}")
         # Return empty for unknown dataset
         return np.array([]), np.array([]), []
-
+    # --- Limit dataset size if max_samples_per_class is specified ---
+    if max_samples_per_class is not None and labels_list:
+        print(f"Limiting dataset to max {max_samples_per_class} samples per class...")
+        
+        # Convert to numpy array for easier manipulation
+        labels_np_temp = np.array(labels_list)
+        unique_labels = np.unique(labels_np_temp)
+        
+        # Track indices to keep
+        indices_to_keep = []
+        
+        # For each class, randomly select up to max_samples_per_class
+        for label in unique_labels:
+            class_indices = np.where(labels_np_temp == label)[0]
+            
+            # If we have more samples than the limit, randomly select
+            if len(class_indices) > max_samples_per_class:
+                # Randomly select indices without replacement
+                selected_indices = np.random.choice(
+                    class_indices, 
+                    size=max_samples_per_class, 
+                    replace=False
+                )
+                indices_to_keep.extend(selected_indices)
+            else:
+                # Keep all samples for this class
+                indices_to_keep.extend(class_indices)
+        
+        # Sort indices to maintain original order
+        indices_to_keep.sort()
+        
+        # Update raw_data, labels_list, and documents
+        if dataset_name == "iris":  # For numerical datasets
+            raw_data = [raw_data[i] for i in indices_to_keep]
+            features = np.array(raw_data)  # Update features for iris
+        
+        # Update labels and documents for all datasets
+        labels_list = [labels_list[i] for i in indices_to_keep]
+        documents = [documents[i] for i in indices_to_keep]
+        
+        print(f"Dataset limited to {len(labels_list)} samples total")
+        print(f"Class distribution after limiting:")
+        for label in np.unique(np.array(labels_list)):
+            count = np.sum(np.array(labels_list) == label)
+            print(f"  Class {label}: {count} samples")
+    
     # --- Handle Feature Generation/Loading for Text-Based Datasets ---
     # This applies if raw_data/documents were loaded, but features are still empty (i.e., not Iris)
     if features.size == 0 and documents:

@@ -1,0 +1,454 @@
+pair_indices,document1_text_preview,document2_text_preview,full_prompt,raw_llm_response,cleaned_llm_response,constraint_type,doc1_full_text,doc2_full_text
+"(883, 917)",What are the cards and currencies that are supported?...,What cards and currencies are supported?...,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: What are the cards and currencies that are supported?
+Snippet 2: What cards and currencies are supported?",YES,YES,Must-Link,What are the cards and currencies that are supported?,What cards and currencies are supported?
+"(1891, 2604)",I don't like your company. Delete my account....,how do VR cards work...,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: I don't like your company. Delete my account.
+Snippet 2: how do VR cards work",NO,NO,Cannot-Link,I don't like your company. Delete my account.,how do VR cards work
+"(3046, 3047)","I'm not in the UK, can I still get a card?...","I'm not in the UK, is it possible for me to still get a card?...","Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: I'm not in the UK, can I still get a card?
+Snippet 2: I'm not in the UK, is it possible for me to still get a card?",YES,YES,Must-Link,"I'm not in the UK, can I still get a card?","I'm not in the UK, is it possible for me to still get a card?"
+"(778, 3033)","I went to withdraw some cash earlier today, but seems the ATM gave me the wrong amount of cash! The ...",Do I need any kind of documentation for the identity check?...,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: I went to withdraw some cash earlier today, but seems the ATM gave me the wrong amount of cash! The amount showing up in the app is a lot more
+Snippet 2: Do I need any kind of documentation for the identity check?",NO,NO,Cannot-Link,"I went to withdraw some cash earlier today, but seems the ATM gave me the wrong amount of cash! The amount showing up in the app is a lot more",Do I need any kind of documentation for the identity check?
+"(778, 3042)","I went to withdraw some cash earlier today, but seems the ATM gave me the wrong amount of cash! The ...",Can I use your app if I am from the EU?...,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: I went to withdraw some cash earlier today, but seems the ATM gave me the wrong amount of cash! The amount showing up in the app is a lot more
+Snippet 2: Can I use your app if I am from the EU?",NO,NO,Cannot-Link,"I went to withdraw some cash earlier today, but seems the ATM gave me the wrong amount of cash! The amount showing up in the app is a lot more",Can I use your app if I am from the EU?
+"(52, 778)",How do I link one your card if I have one already?...,"I went to withdraw some cash earlier today, but seems the ATM gave me the wrong amount of cash! The ...","Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: How do I link one your card if I have one already?
+Snippet 2: I went to withdraw some cash earlier today, but seems the ATM gave me the wrong amount of cash! The amount showing up in the app is a lot more",NO,NO,Cannot-Link,How do I link one your card if I have one already?,"I went to withdraw some cash earlier today, but seems the ATM gave me the wrong amount of cash! The amount showing up in the app is a lot more"
+"(89, 1154)",what are exchange rates based on...,I want to change my name....,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: what are exchange rates based on
+Snippet 2: I want to change my name.",NO,NO,Cannot-Link,what are exchange rates based on,I want to change my name.
+"(89, 1645)",what are exchange rates based on...,I can't find my phone....,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: what are exchange rates based on
+Snippet 2: I can't find my phone.",NO,NO,Cannot-Link,what are exchange rates based on,I can't find my phone.
+"(723, 748)",What is the limit to top up?...,What is the limit to top-up?...,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: What is the limit to top up?
+Snippet 2: What is the limit to top-up?",YES,YES,Must-Link,What is the limit to top up?,What is the limit to top-up?
+"(89, 443)",what are exchange rates based on...,"I cant find my card, it's gone....","Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: what are exchange rates based on
+Snippet 2: I cant find my card, it's gone.",NO,NO,Cannot-Link,what are exchange rates based on,"I cant find my card, it's gone."
+"(294, 778)",Can it be delivered by a specific date?...,"I went to withdraw some cash earlier today, but seems the ATM gave me the wrong amount of cash! The ...","Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: Can it be delivered by a specific date?
+Snippet 2: I went to withdraw some cash earlier today, but seems the ATM gave me the wrong amount of cash! The amount showing up in the app is a lot more",NO,NO,Cannot-Link,Can it be delivered by a specific date?,"I went to withdraw some cash earlier today, but seems the ATM gave me the wrong amount of cash! The amount showing up in the app is a lot more"
+"(89, 1883)",what are exchange rates based on...,I would like to delete my account please....,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: what are exchange rates based on
+Snippet 2: I would like to delete my account please.",NO,NO,Cannot-Link,what are exchange rates based on,I would like to delete my account please.
+"(89, 1947)",what are exchange rates based on...,The stupid machine just swallowed my card!! I need a new one ASAP...,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: what are exchange rates based on
+Snippet 2: The stupid machine just swallowed my card!! I need a new one ASAP",NO,NO,Cannot-Link,what are exchange rates based on,The stupid machine just swallowed my card!! I need a new one ASAP
+"(1292, 1304)",Do I get a choice between Visa and Mastercard?...,Do I get to choose between Visa and Mastercard?...,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: Do I get a choice between Visa and Mastercard?
+Snippet 2: Do I get to choose between Visa and Mastercard?",YES,YES,Must-Link,Do I get a choice between Visa and Mastercard?,Do I get to choose between Visa and Mastercard?
+"(2607, 2630)",How do the disposable cards work?...,How do disposable cards work?...,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: How do the disposable cards work?
+Snippet 2: How do disposable cards work?",YES,YES,Must-Link,How do the disposable cards work?,How do disposable cards work?
+"(4, 30)",My card has not arrived yet....,My card hasn't arrived yet....,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: My card has not arrived yet.
+Snippet 2: My card hasn't arrived yet.",YES,YES,Must-Link,My card has not arrived yet.,My card hasn't arrived yet.
+"(2089, 2103)",Why has my card payment been cancelled?...,Why was my card payment cancelled?...,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: Why has my card payment been cancelled?
+Snippet 2: Why was my card payment cancelled?",YES,YES,Must-Link,Why has my card payment been cancelled?,Why was my card payment cancelled?
+"(89, 1547)",what are exchange rates based on...,I have forgotten my password....,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: what are exchange rates based on
+Snippet 2: I have forgotten my password.",NO,NO,Cannot-Link,what are exchange rates based on,I have forgotten my password.
+"(89, 1675)",what are exchange rates based on...,I lost my phone!...,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: what are exchange rates based on
+Snippet 2: I lost my phone!",NO,NO,Cannot-Link,what are exchange rates based on,I lost my phone!
+"(738, 754)",Is there a limit to top-ups?...,Is there a limit for top-ups?...,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: Is there a limit to top-ups?
+Snippet 2: Is there a limit for top-ups?",YES,YES,Must-Link,Is there a limit to top-ups?,Is there a limit for top-ups?
+"(2275, 2278)",Can I get paid in a different currency?...,Can I get paid in another currency?...,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: Can I get paid in a different currency?
+Snippet 2: Can I get paid in another currency?",YES,YES,Must-Link,Can I get paid in a different currency?,Can I get paid in another currency?
+"(2056, 2072)",How long do i have to wait for a transfer to reach my account?...,How long to I have to wait for a transfer to reach my account?...,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: How long do i have to wait for a transfer to reach my account?
+Snippet 2: How long to I have to wait for a transfer to reach my account?",YES,YES,Must-Link,How long do i have to wait for a transfer to reach my account?,How long to I have to wait for a transfer to reach my account?
+"(2441, 2463)",How do I top-up using cash?...,How can I top up with cash?...,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: How do I top-up using cash?
+Snippet 2: How can I top up with cash?",YES,YES,Must-Link,How do I top-up using cash?,How can I top up with cash?
+"(742, 754)",Is there a limit on top-ups?...,Is there a limit for top-ups?...,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: Is there a limit on top-ups?
+Snippet 2: Is there a limit for top-ups?",YES,YES,Must-Link,Is there a limit on top-ups?,Is there a limit for top-ups?
+"(366, 375)",Why is my card not working?...,Why isn't my card working?...,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: Why is my card not working?
+Snippet 2: Why isn't my card working?",YES,YES,Must-Link,Why is my card not working?,Why isn't my card working?
+"(965, 985)",Can my card be used everywhere?...,Can I use my card everywhere?...,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: Can my card be used everywhere?
+Snippet 2: Can I use my card everywhere?",YES,YES,Must-Link,Can my card be used everywhere?,Can I use my card everywhere?
+"(778, 1558)","I went to withdraw some cash earlier today, but seems the ATM gave me the wrong amount of cash! The ...",Can you tell me what to do to reset my passcode?...,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: I went to withdraw some cash earlier today, but seems the ATM gave me the wrong amount of cash! The amount showing up in the app is a lot more
+Snippet 2: Can you tell me what to do to reset my passcode?",NO,NO,Cannot-Link,"I went to withdraw some cash earlier today, but seems the ATM gave me the wrong amount of cash! The amount showing up in the app is a lot more",Can you tell me what to do to reset my passcode?
+"(2771, 2774)",Is there a fee to exchange foreign money?...,Is there a fee for exchanging foreign currencies?...,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: Is there a fee to exchange foreign money?
+Snippet 2: Is there a fee for exchanging foreign currencies?",YES,YES,Must-Link,Is there a fee to exchange foreign money?,Is there a fee for exchanging foreign currencies?
+"(89, 1647)",what are exchange rates based on...,"I'm not sure where my phone is, I think someone stole it or it's lost....","Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: what are exchange rates based on
+Snippet 2: I'm not sure where my phone is, I think someone stole it or it's lost.",NO,NO,Cannot-Link,what are exchange rates based on,"I'm not sure where my phone is, I think someone stole it or it's lost."
+"(778, 3062)","I went to withdraw some cash earlier today, but seems the ATM gave me the wrong amount of cash! The ...",What countries do you support?...,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: I went to withdraw some cash earlier today, but seems the ATM gave me the wrong amount of cash! The amount showing up in the app is a lot more
+Snippet 2: What countries do you support?",NO,NO,Cannot-Link,"I went to withdraw some cash earlier today, but seems the ATM gave me the wrong amount of cash! The amount showing up in the app is a lot more",What countries do you support?
+"(778, 1259)","I went to withdraw some cash earlier today, but seems the ATM gave me the wrong amount of cash! The ...",what is the process for setting up a pin...,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: I went to withdraw some cash earlier today, but seems the ATM gave me the wrong amount of cash! The amount showing up in the app is a lot more
+Snippet 2: what is the process for setting up a pin",NO,NO,Cannot-Link,"I went to withdraw some cash earlier today, but seems the ATM gave me the wrong amount of cash! The amount showing up in the app is a lot more",what is the process for setting up a pin
+"(888, 890)",Can I use my American Express to add money to my account?...,Can I use American Express to add money into my account?...,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: Can I use my American Express to add money to my account?
+Snippet 2: Can I use American Express to add money into my account?",YES,YES,Must-Link,Can I use my American Express to add money to my account?,Can I use American Express to add money into my account?
+"(2374, 2375)",Why does the top-up need verification?...,Why does top-up need verifying?...,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: Why does the top-up need verification?
+Snippet 2: Why does top-up need verifying?",YES,YES,Must-Link,Why does the top-up need verification?,Why does top-up need verifying?
+"(952, 957)",Where can I go to get a virtual card?...,Where can I get a virtual card?...,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: Where can I go to get a virtual card?
+Snippet 2: Where can I get a virtual card?",YES,YES,Must-Link,Where can I go to get a virtual card?,Where can I get a virtual card?
+"(2442, 2473)",Can I top up with a cheque?...,Can I top up my account with a cheque?...,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: Can I top up with a cheque?
+Snippet 2: Can I top up my account with a cheque?",YES,YES,Must-Link,Can I top up with a cheque?,Can I top up my account with a cheque?
+"(2331, 2358)",I would like to transfer some money from my other bank account into this one....,I would like to transfer money from my other bank account into this one....,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: I would like to transfer some money from my other bank account into this one.
+Snippet 2: I would like to transfer money from my other bank account into this one.",YES,YES,Must-Link,I would like to transfer some money from my other bank account into this one.,I would like to transfer money from my other bank account into this one.
+"(3010, 3022)",What are the steps I need to take to verify my identity?...,What steps do I take to verify my identity?...,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: What are the steps I need to take to verify my identity?
+Snippet 2: What steps do I take to verify my identity?",YES,YES,Must-Link,What are the steps I need to take to verify my identity?,What steps do I take to verify my identity?
+"(2249, 2261)",Can I use this to receive my salary?...,Can this be used to receive my salary?...,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: Can I use this to receive my salary?
+Snippet 2: Can this be used to receive my salary?",YES,YES,Must-Link,Can I use this to receive my salary?,Can this be used to receive my salary?
+"(1203, 1222)",I am having trouble verifying my identity....,I am having difficulties to verify my identity....,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: I am having trouble verifying my identity.
+Snippet 2: I am having difficulties to verify my identity.",YES,YES,Must-Link,I am having trouble verifying my identity.,I am having difficulties to verify my identity.
+"(778, 3055)","I went to withdraw some cash earlier today, but seems the ATM gave me the wrong amount of cash! The ...",Is it possible to get a card if I'm not in the UK?...,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: I went to withdraw some cash earlier today, but seems the ATM gave me the wrong amount of cash! The amount showing up in the app is a lot more
+Snippet 2: Is it possible to get a card if I'm not in the UK?",NO,NO,Cannot-Link,"I went to withdraw some cash earlier today, but seems the ATM gave me the wrong amount of cash! The amount showing up in the app is a lot more",Is it possible to get a card if I'm not in the UK?
+"(592, 595)",How do I use contactless payments?...,How do I use contactless pay?...,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: How do I use contactless payments?
+Snippet 2: How do I use contactless pay?",YES,YES,Must-Link,How do I use contactless payments?,How do I use contactless pay?
+"(2362, 2385)",Where can I find the top-up verification code?...,Where do I find the top-up verification code?...,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: Where can I find the top-up verification code?
+Snippet 2: Where do I find the top-up verification code?",YES,YES,Must-Link,Where can I find the top-up verification code?,Where do I find the top-up verification code?
+"(618, 2838)",What are the fees for top-ups?...,What are the fees for top ups?...,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: What are the fees for top-ups?
+Snippet 2: What are the fees for top ups?",YES,YES,Must-Link,What are the fees for top-ups?,What are the fees for top ups?
+"(778, 1142)","I went to withdraw some cash earlier today, but seems the ATM gave me the wrong amount of cash! The ...",Where can I go to update my personal profile?...,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: I went to withdraw some cash earlier today, but seems the ATM gave me the wrong amount of cash! The amount showing up in the app is a lot more
+Snippet 2: Where can I go to update my personal profile?",NO,NO,Cannot-Link,"I went to withdraw some cash earlier today, but seems the ATM gave me the wrong amount of cash! The amount showing up in the app is a lot more",Where can I go to update my personal profile?
+"(2970, 2985)",How can I top up my Google Pay?...,How can I top up with Google Pay?...,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: How can I top up my Google Pay?
+Snippet 2: How can I top up with Google Pay?",NO,NO,Cannot-Link,How can I top up my Google Pay?,How can I top up with Google Pay?
+"(778, 1380)","I went to withdraw some cash earlier today, but seems the ATM gave me the wrong amount of cash! The ...",I would like to know any restrictions for the disposable cards....,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: I went to withdraw some cash earlier today, but seems the ATM gave me the wrong amount of cash! The amount showing up in the app is a lot more
+Snippet 2: I would like to know any restrictions for the disposable cards.",NO,NO,Cannot-Link,"I went to withdraw some cash earlier today, but seems the ATM gave me the wrong amount of cash! The amount showing up in the app is a lot more",I would like to know any restrictions for the disposable cards.
+"(89, 1896)",what are exchange rates based on...,I need your help in deleting my account....,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: what are exchange rates based on
+Snippet 2: I need your help in deleting my account.",NO,NO,Cannot-Link,what are exchange rates based on,I need your help in deleting my account.
+"(778, 2600)","I went to withdraw some cash earlier today, but seems the ATM gave me the wrong amount of cash! The ...",can i get a description of how to use a disposable virtual card...,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: I went to withdraw some cash earlier today, but seems the ATM gave me the wrong amount of cash! The amount showing up in the app is a lot more
+Snippet 2: can i get a description of how to use a disposable virtual card",NO,NO,Cannot-Link,"I went to withdraw some cash earlier today, but seems the ATM gave me the wrong amount of cash! The amount showing up in the app is a lot more",can i get a description of how to use a disposable virtual card
+"(778, 1279)","I went to withdraw some cash earlier today, but seems the ATM gave me the wrong amount of cash! The ...",where can user find pin?...,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: I went to withdraw some cash earlier today, but seems the ATM gave me the wrong amount of cash! The amount showing up in the app is a lot more
+Snippet 2: where can user find pin?",NO,NO,Cannot-Link,"I went to withdraw some cash earlier today, but seems the ATM gave me the wrong amount of cash! The amount showing up in the app is a lot more",where can user find pin?
+"(89, 1670)",what are exchange rates based on...,I am not able to use the app since I forgot my phone at the hotel I was staying at....,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: what are exchange rates based on
+Snippet 2: I am not able to use the app since I forgot my phone at the hotel I was staying at.",NO,NO,Cannot-Link,what are exchange rates based on,I am not able to use the app since I forgot my phone at the hotel I was staying at.
+"(1335, 1352)",How do I transfer money using a credit card?...,How do i transfer money using my credit card?...,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: How do I transfer money using a credit card?
+Snippet 2: How do i transfer money using my credit card?",YES,YES,Must-Link,How do I transfer money using a credit card?,How do i transfer money using my credit card?
+"(45, 89)","I received my new card, but I don't see it in the app anywhere.  What do I do?...",what are exchange rates based on...,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: I received my new card, but I don't see it in the app anywhere.  What do I do?
+Snippet 2: what are exchange rates based on",NO,NO,Cannot-Link,"I received my new card, but I don't see it in the app anywhere.  What do I do?",what are exchange rates based on
+"(89, 1889)",what are exchange rates based on...,I would like to delete my account....,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: what are exchange rates based on
+Snippet 2: I would like to delete my account.",NO,NO,Cannot-Link,what are exchange rates based on,I would like to delete my account.
+"(89, 1898)",what are exchange rates based on...,Delete this account!...,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: what are exchange rates based on
+Snippet 2: Delete this account!",NO,NO,Cannot-Link,what are exchange rates based on,Delete this account!
+"(3046, 3074)","I'm not in the UK, can I still get a card?...","I'm not in the UK, can I get a card?...","Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: I'm not in the UK, can I still get a card?
+Snippet 2: I'm not in the UK, can I get a card?",YES,YES,Must-Link,"I'm not in the UK, can I still get a card?","I'm not in the UK, can I get a card?"
+"(2767, 2774)",Is there a fee for exchanging currencies?...,Is there a fee for exchanging foreign currencies?...,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: Is there a fee for exchanging currencies?
+Snippet 2: Is there a fee for exchanging foreign currencies?",YES,YES,Must-Link,Is there a fee for exchanging currencies?,Is there a fee for exchanging foreign currencies?
+"(513, 514)",How old do my kids have to be to use your service?...,What age do my kids need to be to use your service?...,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: How old do my kids have to be to use your service?
+Snippet 2: What age do my kids need to be to use your service?",YES,YES,Must-Link,How old do my kids have to be to use your service?,What age do my kids need to be to use your service?
+"(1249, 2572)",where in the app can i find out about my new pin...,Why is the exchange rate so exorbitant? This should have been a much higher amount of cash for that ...,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: where in the app can i find out about my new pin
+Snippet 2: Why is the exchange rate so exorbitant? This should have been a much higher amount of cash for that to apply.",NO,NO,Cannot-Link,where in the app can i find out about my new pin,Why is the exchange rate so exorbitant? This should have been a much higher amount of cash for that to apply.
+"(738, 742)",Is there a limit to top-ups?...,Is there a limit on top-ups?...,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: Is there a limit to top-ups?
+Snippet 2: Is there a limit on top-ups?",YES,YES,Must-Link,Is there a limit to top-ups?,Is there a limit on top-ups?
+"(3018, 3030)",What should I do to verify my identity?...,What can I do to verify my identity?...,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: What should I do to verify my identity?
+Snippet 2: What can I do to verify my identity?",YES,YES,Must-Link,What should I do to verify my identity?,What can I do to verify my identity?
+"(778, 1174)","I went to withdraw some cash earlier today, but seems the ATM gave me the wrong amount of cash! The ...",What is the purpose for the identity check...,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: I went to withdraw some cash earlier today, but seems the ATM gave me the wrong amount of cash! The amount showing up in the app is a lot more
+Snippet 2: What is the purpose for the identity check",NO,NO,Cannot-Link,"I went to withdraw some cash earlier today, but seems the ATM gave me the wrong amount of cash! The amount showing up in the app is a lot more",What is the purpose for the identity check
+"(89, 1272)",what are exchange rates based on...,Help me find my card pin!...,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: what are exchange rates based on
+Snippet 2: Help me find my card pin!",NO,NO,Cannot-Link,what are exchange rates based on,Help me find my card pin!
+"(1193, 1197)",Do I need to verify my identity?...,Do I have to verify my identity?...,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: Do I need to verify my identity?
+Snippet 2: Do I have to verify my identity?",YES,YES,Must-Link,Do I need to verify my identity?,Do I have to verify my identity?
+"(89, 1891)",what are exchange rates based on...,I don't like your company. Delete my account....,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: what are exchange rates based on
+Snippet 2: I don't like your company. Delete my account.",NO,NO,Cannot-Link,what are exchange rates based on,I don't like your company. Delete my account.
+"(515, 516)",How old do my children need to be to open an account?...,How old does my kids need to be to open an account?...,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: How old do my children need to be to open an account?
+Snippet 2: How old does my kids need to be to open an account?",YES,YES,Must-Link,How old do my children need to be to open an account?,How old does my kids need to be to open an account?
+"(920, 940)",Where can I obtain my virtual card?...,Where do I obtain my virtual card?...,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: Where can I obtain my virtual card?
+Snippet 2: Where do I obtain my virtual card?",YES,YES,Must-Link,Where can I obtain my virtual card?,Where do I obtain my virtual card?
+"(497, 511)",How old do I have to be to open an account?...,How old do I need to be to open an account?...,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: How old do I have to be to open an account?
+Snippet 2: How old do I need to be to open an account?",YES,YES,Must-Link,How old do I have to be to open an account?,How old do I need to be to open an account?
+"(89, 1537)",what are exchange rates based on...,Show me please how to reset my passcode....,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: what are exchange rates based on
+Snippet 2: Show me please how to reset my passcode.",NO,NO,Cannot-Link,what are exchange rates based on,Show me please how to reset my passcode.
+"(89, 1656)",what are exchange rates based on...,My phone is not with me at the moment so I will not be able to access the app....,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: what are exchange rates based on
+Snippet 2: My phone is not with me at the moment so I will not be able to access the app.",NO,NO,Cannot-Link,what are exchange rates based on,My phone is not with me at the moment so I will not be able to access the app.
+"(1241, 1273)",Is the PIN delivered separately?...,Is PIN delivered separately?...,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: Is the PIN delivered separately?
+Snippet 2: Is PIN delivered separately?",YES,YES,Must-Link,Is the PIN delivered separately?,Is PIN delivered separately?
+"(3019, 3022)",What are the steps to verify my identity?...,What steps do I take to verify my identity?...,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: What are the steps to verify my identity?
+Snippet 2: What steps do I take to verify my identity?",YES,YES,Must-Link,What are the steps to verify my identity?,What steps do I take to verify my identity?
+"(3010, 3019)",What are the steps I need to take to verify my identity?...,What are the steps to verify my identity?...,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: What are the steps I need to take to verify my identity?
+Snippet 2: What are the steps to verify my identity?",YES,YES,Must-Link,What are the steps I need to take to verify my identity?,What are the steps to verify my identity?
+"(2440, 2454)",Can I top up by cheque?...,Can I top up using a cheque?...,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: Can I top up by cheque?
+Snippet 2: Can I top up using a cheque?",YES,YES,Must-Link,Can I top up by cheque?,Can I top up using a cheque?
+"(778, 1176)","I went to withdraw some cash earlier today, but seems the ATM gave me the wrong amount of cash! The ...",What is the point of an identity check?...,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: I went to withdraw some cash earlier today, but seems the ATM gave me the wrong amount of cash! The amount showing up in the app is a lot more
+Snippet 2: What is the point of an identity check?",NO,NO,Cannot-Link,"I went to withdraw some cash earlier today, but seems the ATM gave me the wrong amount of cash! The amount showing up in the app is a lot more",What is the point of an identity check?
+"(89, 545)",what are exchange rates based on...,Can you assist me with unblocking my PIN? I put it in wrong too many times....,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: what are exchange rates based on
+Snippet 2: Can you assist me with unblocking my PIN? I put it in wrong too many times.",NO,NO,Cannot-Link,what are exchange rates based on,Can you assist me with unblocking my PIN? I put it in wrong too many times.
+"(778, 3043)","I went to withdraw some cash earlier today, but seems the ATM gave me the wrong amount of cash! The ...",What countries are supported?...,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: I went to withdraw some cash earlier today, but seems the ATM gave me the wrong amount of cash! The amount showing up in the app is a lot more
+Snippet 2: What countries are supported?",NO,NO,Cannot-Link,"I went to withdraw some cash earlier today, but seems the ATM gave me the wrong amount of cash! The amount showing up in the app is a lot more",What countries are supported?
+"(89, 1219)",what are exchange rates based on...,I can not get the app to know it is me....,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: what are exchange rates based on
+Snippet 2: I can not get the app to know it is me.",NO,NO,Cannot-Link,what are exchange rates based on,I can not get the app to know it is me.
+"(778, 1249)","I went to withdraw some cash earlier today, but seems the ATM gave me the wrong amount of cash! The ...",where in the app can i find out about my new pin...,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: I went to withdraw some cash earlier today, but seems the ATM gave me the wrong amount of cash! The amount showing up in the app is a lot more
+Snippet 2: where in the app can i find out about my new pin",NO,NO,Cannot-Link,"I went to withdraw some cash earlier today, but seems the ATM gave me the wrong amount of cash! The amount showing up in the app is a lot more",where in the app can i find out about my new pin
+"(2363, 2381)",Why do I have to verify the top-up that I started?...,Why do I have to verify the top-up?...,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: Why do I have to verify the top-up that I started?
+Snippet 2: Why do I have to verify the top-up?",YES,YES,Must-Link,Why do I have to verify the top-up that I started?,Why do I have to verify the top-up?
+"(2442, 2454)",Can I top up with a cheque?...,Can I top up using a cheque?...,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: Can I top up with a cheque?
+Snippet 2: Can I top up using a cheque?",YES,YES,Must-Link,Can I top up with a cheque?,Can I top up using a cheque?
+"(44, 67)",How do I link a card that I already have?...,how do I link a card I already have?...,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: How do I link a card that I already have?
+Snippet 2: how do I link a card I already have?",YES,YES,Must-Link,How do I link a card that I already have?,how do I link a card I already have?
+"(778, 3073)","I went to withdraw some cash earlier today, but seems the ATM gave me the wrong amount of cash! The ...",What countries do you currently do business in?...,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: I went to withdraw some cash earlier today, but seems the ATM gave me the wrong amount of cash! The amount showing up in the app is a lot more
+Snippet 2: What countries do you currently do business in?",NO,NO,Cannot-Link,"I went to withdraw some cash earlier today, but seems the ATM gave me the wrong amount of cash! The amount showing up in the app is a lot more",What countries do you currently do business in?
+"(778, 1642)","I went to withdraw some cash earlier today, but seems the ATM gave me the wrong amount of cash! The ...","If my phone is missing, can I block someone from using the app?...","Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: I went to withdraw some cash earlier today, but seems the ATM gave me the wrong amount of cash! The amount showing up in the app is a lot more
+Snippet 2: If my phone is missing, can I block someone from using the app?",NO,NO,Cannot-Link,"I went to withdraw some cash earlier today, but seems the ATM gave me the wrong amount of cash! The amount showing up in the app is a lot more","If my phone is missing, can I block someone from using the app?"
+"(778, 3036)","I went to withdraw some cash earlier today, but seems the ATM gave me the wrong amount of cash! The ...",Is there any documentation needed for the identity check?...,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: I went to withdraw some cash earlier today, but seems the ATM gave me the wrong amount of cash! The amount showing up in the app is a lot more
+Snippet 2: Is there any documentation needed for the identity check?",NO,NO,Cannot-Link,"I went to withdraw some cash earlier today, but seems the ATM gave me the wrong amount of cash! The amount showing up in the app is a lot more",Is there any documentation needed for the identity check?
+"(2806, 2834)",Are there fees for top ups?...,Is their a fee for top ups?...,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: Are there fees for top ups?
+Snippet 2: Is their a fee for top ups?",YES,YES,Must-Link,Are there fees for top ups?,Is their a fee for top ups?
+"(89, 1923)",what are exchange rates based on...,What do I do since the machine swallowed my card. I need one....,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: what are exchange rates based on
+Snippet 2: What do I do since the machine swallowed my card. I need one.",NO,NO,Cannot-Link,what are exchange rates based on,What do I do since the machine swallowed my card. I need one.
+"(89, 1148)",what are exchange rates based on...,I need to change my name since I got married...,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: what are exchange rates based on
+Snippet 2: I need to change my name since I got married",NO,NO,Cannot-Link,what are exchange rates based on,I need to change my name since I got married
+"(1446, 1457)",Which ATM's accept my card?...,Which ATM's will accept my card?...,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: Which ATM's accept my card?
+Snippet 2: Which ATM's will accept my card?",YES,YES,Must-Link,Which ATM's accept my card?,Which ATM's will accept my card?
+"(2288, 2316)",Why did my transfer not go through?...,Why didn't my transfer go through?...,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: Why did my transfer not go through?
+Snippet 2: Why didn't my transfer go through?",YES,YES,Must-Link,Why did my transfer not go through?,Why didn't my transfer go through?
+"(1441, 1461)",Which ATMs accept this card?...,"
+Which ATMs accept this card?...","Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: Which ATMs accept this card?
+Snippet 2: 
+Which ATMs accept this card?",YES,YES,Must-Link,Which ATMs accept this card?,"
+Which ATMs accept this card?"
+"(89, 1642)",what are exchange rates based on...,"If my phone is missing, can I block someone from using the app?...","Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: what are exchange rates based on
+Snippet 2: If my phone is missing, can I block someone from using the app?",NO,NO,Cannot-Link,what are exchange rates based on,"If my phone is missing, can I block someone from using the app?"
+"(778, 3057)","I went to withdraw some cash earlier today, but seems the ATM gave me the wrong amount of cash! The ...",From what countries can I use this product?...,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: I went to withdraw some cash earlier today, but seems the ATM gave me the wrong amount of cash! The amount showing up in the app is a lot more
+Snippet 2: From what countries can I use this product?",NO,NO,Cannot-Link,"I went to withdraw some cash earlier today, but seems the ATM gave me the wrong amount of cash! The amount showing up in the app is a lot more",From what countries can I use this product?
+"(89, 1660)",what are exchange rates based on...,The hotel called and said I left my phone in the room....,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: what are exchange rates based on
+Snippet 2: The hotel called and said I left my phone in the room.",NO,NO,Cannot-Link,what are exchange rates based on,The hotel called and said I left my phone in the room.
+"(89, 1907)",what are exchange rates based on...,Please delete my account....,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: what are exchange rates based on
+Snippet 2: Please delete my account.",NO,NO,Cannot-Link,what are exchange rates based on,Please delete my account.
+"(663, 675)",Why is my top up still pending?...,Why is my top-up still pending?...,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: Why is my top up still pending?
+Snippet 2: Why is my top-up still pending?",YES,YES,Must-Link,Why is my top up still pending?,Why is my top-up still pending?
+"(778, 1171)","I went to withdraw some cash earlier today, but seems the ATM gave me the wrong amount of cash! The ...","Can I still use my account, even though the identity verification has not passed yet?...","Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: I went to withdraw some cash earlier today, but seems the ATM gave me the wrong amount of cash! The amount showing up in the app is a lot more
+Snippet 2: Can I still use my account, even though the identity verification has not passed yet?",NO,NO,Cannot-Link,"I went to withdraw some cash earlier today, but seems the ATM gave me the wrong amount of cash! The amount showing up in the app is a lot more","Can I still use my account, even though the identity verification has not passed yet?"
+"(1938, 1940)",What do I do if the ATM ate my card?...,What do I do if an ATM ate my card?...,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: What do I do if the ATM ate my card?
+Snippet 2: What do I do if an ATM ate my card?",YES,YES,Must-Link,What do I do if the ATM ate my card?,What do I do if an ATM ate my card?
+"(689, 703)",How can I cancel a transfer?...,How do I cancel my transfer?...,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: How can I cancel a transfer?
+Snippet 2: How do I cancel my transfer?",YES,YES,Must-Link,How can I cancel a transfer?,How do I cancel my transfer?
+"(723, 735)",What is the limit to top up?...,What is the limit to a top-up?...,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: What is the limit to top up?
+Snippet 2: What is the limit to a top-up?",YES,YES,Must-Link,What is the limit to top up?,What is the limit to a top-up?
+"(1841, 1879)",How long for money transfer to show?...,How long does it take for a money transfer to show?...,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: How long for money transfer to show?
+Snippet 2: How long does it take for a money transfer to show?",YES,YES,Must-Link,How long for money transfer to show?,How long does it take for a money transfer to show?
+"(490, 502)",What is the minimum age to open an account?...,What's the minimum age for opening an account?...,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: What is the minimum age to open an account?
+Snippet 2: What's the minimum age for opening an account?",YES,YES,Must-Link,What is the minimum age to open an account?,What's the minimum age for opening an account?
+"(89, 1543)",what are exchange rates based on...,I need help resetting my passcode to access my app....,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: what are exchange rates based on
+Snippet 2: I need help resetting my passcode to access my app.",NO,NO,Cannot-Link,what are exchange rates based on,I need help resetting my passcode to access my app.
+"(89, 1900)",what are exchange rates based on...,"This company isn't good, I would like to delete my account....","Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: what are exchange rates based on
+Snippet 2: This company isn't good, I would like to delete my account.",NO,NO,Cannot-Link,what are exchange rates based on,"This company isn't good, I would like to delete my account."
+"(2338, 2477)",How do I top up my card?...,How can I top-up my card?...,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: How do I top up my card?
+Snippet 2: How can I top-up my card?",YES,YES,Must-Link,How do I top up my card?,How can I top-up my card?
+"(2440, 2442)",Can I top up by cheque?...,Can I top up with a cheque?...,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: Can I top up by cheque?
+Snippet 2: Can I top up with a cheque?",YES,YES,Must-Link,Can I top up by cheque?,Can I top up with a cheque?
+"(89, 1671)",what are exchange rates based on...,Someone stole my phone....,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: what are exchange rates based on
+Snippet 2: Someone stole my phone.",NO,NO,Cannot-Link,what are exchange rates based on,Someone stole my phone.
+"(89, 1909)",what are exchange rates based on...,I want my account deleted!...,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: what are exchange rates based on
+Snippet 2: I want my account deleted!",NO,NO,Cannot-Link,what are exchange rates based on,I want my account deleted!
+"(778, 2604)","I went to withdraw some cash earlier today, but seems the ATM gave me the wrong amount of cash! The ...",how do VR cards work...,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: I went to withdraw some cash earlier today, but seems the ATM gave me the wrong amount of cash! The amount showing up in the app is a lot more
+Snippet 2: how do VR cards work",NO,NO,Cannot-Link,"I went to withdraw some cash earlier today, but seems the ATM gave me the wrong amount of cash! The amount showing up in the app is a lot more",how do VR cards work
+"(735, 748)",What is the limit to a top-up?...,What is the limit to top-up?...,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: What is the limit to a top-up?
+Snippet 2: What is the limit to top-up?",YES,YES,Must-Link,What is the limit to a top-up?,What is the limit to top-up?
+"(778, 2613)","I went to withdraw some cash earlier today, but seems the ATM gave me the wrong amount of cash! The ...",how secure is a disposable virtual card...,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: I went to withdraw some cash earlier today, but seems the ATM gave me the wrong amount of cash! The amount showing up in the app is a lot more
+Snippet 2: how secure is a disposable virtual card",NO,NO,Cannot-Link,"I went to withdraw some cash earlier today, but seems the ATM gave me the wrong amount of cash! The amount showing up in the app is a lot more",how secure is a disposable virtual card
+"(738, 744)",Is there a limit to top-ups?...,Are there limits to top-ups?...,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: Is there a limit to top-ups?
+Snippet 2: Are there limits to top-ups?",YES,YES,Must-Link,Is there a limit to top-ups?,Are there limits to top-ups?
+"(325, 346)",Can it automatically top-up money if there isn't much left?...,Will it automatically top-up money if there isn't a lot left?...,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: Can it automatically top-up money if there isn't much left?
+Snippet 2: Will it automatically top-up money if there isn't a lot left?",YES,YES,Must-Link,Can it automatically top-up money if there isn't much left?,Will it automatically top-up money if there isn't a lot left?
+"(2104, 2111)",Why has my card payment been reverted?...,Why was my card payment reverted?...,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: Why has my card payment been reverted?
+Snippet 2: Why was my card payment reverted?",YES,YES,Must-Link,Why has my card payment been reverted?,Why was my card payment reverted?
+"(89, 1646)",what are exchange rates based on...,I've lost track of my phone or someone stole it....,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: what are exchange rates based on
+Snippet 2: I've lost track of my phone or someone stole it.",NO,NO,Cannot-Link,what are exchange rates based on,I've lost track of my phone or someone stole it.
+"(264, 271)",Am I able to exchange currencies?...,Can I exchange currencies?...,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: Am I able to exchange currencies?
+Snippet 2: Can I exchange currencies?",YES,YES,Must-Link,Am I able to exchange currencies?,Can I exchange currencies?
+"(89, 1664)",what are exchange rates based on...,I believe I left my smartphone at the hotel I was staying at....,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: what are exchange rates based on
+Snippet 2: I believe I left my smartphone at the hotel I was staying at.",NO,NO,Cannot-Link,what are exchange rates based on,I believe I left my smartphone at the hotel I was staying at.
+"(89, 462)",what are exchange rates based on...,I think I lost my card . I dont know how long it has been missing. Can you see if maybe someone else...,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: what are exchange rates based on
+Snippet 2: I think I lost my card . I dont know how long it has been missing. Can you see if maybe someone else has been using it?",NO,NO,Cannot-Link,what are exchange rates based on,I think I lost my card . I dont know how long it has been missing. Can you see if maybe someone else has been using it?
+"(89, 1673)",what are exchange rates based on...,My phone is lost.  What do I do to prevent someone from using the app?...,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: what are exchange rates based on
+Snippet 2: My phone is lost.  What do I do to prevent someone from using the app?",NO,NO,Cannot-Link,what are exchange rates based on,My phone is lost.  What do I do to prevent someone from using the app?
+"(778, 928)","I went to withdraw some cash earlier today, but seems the ATM gave me the wrong amount of cash! The ...",what is the virtual card...,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: I went to withdraw some cash earlier today, but seems the ATM gave me the wrong amount of cash! The amount showing up in the app is a lot more
+Snippet 2: what is the virtual card",NO,NO,Cannot-Link,"I went to withdraw some cash earlier today, but seems the ATM gave me the wrong amount of cash! The amount showing up in the app is a lot more",what is the virtual card
+"(89, 535)",what are exchange rates based on...,Can you unlock my pin? I think I entered the wrong pin too many times....,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: what are exchange rates based on
+Snippet 2: Can you unlock my pin? I think I entered the wrong pin too many times.",NO,NO,Cannot-Link,what are exchange rates based on,Can you unlock my pin? I think I entered the wrong pin too many times.
+"(2806, 2831)",Are there fees for top ups?...,Are there any fees for top ups?...,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: Are there fees for top ups?
+Snippet 2: Are there any fees for top ups?",YES,YES,Must-Link,Are there fees for top ups?,Are there any fees for top ups?
+"(897, 919)",What cards and currencies do you support?...,Which cards and currencies do you support?...,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: What cards and currencies do you support?
+Snippet 2: Which cards and currencies do you support?",YES,YES,Must-Link,What cards and currencies do you support?,Which cards and currencies do you support?
+"(899, 916)",How can I use American Express to add money to my account?...,How can I use American Express to add funds to my account?...,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: How can I use American Express to add money to my account?
+Snippet 2: How can I use American Express to add funds to my account?",YES,YES,Must-Link,How can I use American Express to add money to my account?,How can I use American Express to add funds to my account?
+"(2293, 2294)",Why has my transfer failed?...,Why did my transfer fail?...,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: Why has my transfer failed?
+Snippet 2: Why did my transfer fail?",YES,YES,Must-Link,Why has my transfer failed?,Why did my transfer fail?
+"(89, 1886)",what are exchange rates based on...,Please delete my account right now!...,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: what are exchange rates based on
+Snippet 2: Please delete my account right now!",NO,NO,Cannot-Link,what are exchange rates based on,Please delete my account right now!
+"(346, 352)",Will it automatically top-up money if there isn't a lot left?...,Will it automatically top-up if there isn't much money left?...,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: Will it automatically top-up money if there isn't a lot left?
+Snippet 2: Will it automatically top-up if there isn't much money left?",YES,YES,Must-Link,Will it automatically top-up money if there isn't a lot left?,Will it automatically top-up if there isn't much money left?
+"(89, 1538)",what are exchange rates based on...,Help me reset the passcode....,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: what are exchange rates based on
+Snippet 2: Help me reset the passcode.",NO,NO,Cannot-Link,what are exchange rates based on,Help me reset the passcode.
+"(2285, 2289)",My transfer did not go through....,My transfer didn't go through....,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: My transfer did not go through.
+Snippet 2: My transfer didn't go through.",YES,YES,Must-Link,My transfer did not go through.,My transfer didn't go through.
+"(89, 528)",what are exchange rates based on...,"When I put the wrong pin too much, I got blocked, so can you help me unblock my pin...","Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: what are exchange rates based on
+Snippet 2: When I put the wrong pin too much, I got blocked, so can you help me unblock my pin",NO,NO,Cannot-Link,what are exchange rates based on,"When I put the wrong pin too much, I got blocked, so can you help me unblock my pin"
+"(56, 778)",Can you tell me how to link one of your cards that I already have?...,"I went to withdraw some cash earlier today, but seems the ATM gave me the wrong amount of cash! The ...","Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: Can you tell me how to link one of your cards that I already have?
+Snippet 2: I went to withdraw some cash earlier today, but seems the ATM gave me the wrong amount of cash! The amount showing up in the app is a lot more",NO,NO,Cannot-Link,Can you tell me how to link one of your cards that I already have?,"I went to withdraw some cash earlier today, but seems the ATM gave me the wrong amount of cash! The amount showing up in the app is a lot more"
+"(387, 389)",I can't use my card....,I cannot use my card....,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: I can't use my card.
+Snippet 2: I cannot use my card.",YES,YES,Must-Link,I can't use my card.,I cannot use my card.
+"(89, 546)",what are exchange rates based on...,I entered the wrong pin too many times and now I am blocked.  Help me unblock!...,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: what are exchange rates based on
+Snippet 2: I entered the wrong pin too many times and now I am blocked.  Help me unblock!",NO,NO,Cannot-Link,what are exchange rates based on,I entered the wrong pin too many times and now I am blocked.  Help me unblock!
+"(55, 89)","Hello, I found the card I misplaced and I need to reactive it, how do I do that?...",what are exchange rates based on...,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: Hello, I found the card I misplaced and I need to reactive it, how do I do that?
+Snippet 2: what are exchange rates based on",NO,NO,Cannot-Link,"Hello, I found the card I misplaced and I need to reactive it, how do I do that?",what are exchange rates based on
+"(1565, 1584)",The ATM keeps declining my card. I tried at a couple different ATMs. Can you tell me if there's a pr...,The ATM keeps declining my card. I tried at two different ATMs. Can you tell me if there's an issue ...,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: The ATM keeps declining my card. I tried at a couple different ATMs. Can you tell me if there's a problem with my account?
+Snippet 2: The ATM keeps declining my card. I tried at two different ATMs. Can you tell me if there's an issue with my account?",YES,YES,Must-Link,The ATM keeps declining my card. I tried at a couple different ATMs. Can you tell me if there's a problem with my account?,The ATM keeps declining my card. I tried at two different ATMs. Can you tell me if there's an issue with my account?
+"(1613, 1633)",I bought some stuff this morning but the payment shows as pending...,I bought some things this morning but the payment shows that it is pending...,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: I bought some stuff this morning but the payment shows as pending
+Snippet 2: I bought some things this morning but the payment shows that it is pending",YES,YES,Must-Link,I bought some stuff this morning but the payment shows as pending,I bought some things this morning but the payment shows that it is pending
+"(49, 778)","I have one of your cards already, how do I link it?...","I went to withdraw some cash earlier today, but seems the ATM gave me the wrong amount of cash! The ...","Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: I have one of your cards already, how do I link it?
+Snippet 2: I went to withdraw some cash earlier today, but seems the ATM gave me the wrong amount of cash! The amount showing up in the app is a lot more",NO,NO,Cannot-Link,"I have one of your cards already, how do I link it?","I went to withdraw some cash earlier today, but seems the ATM gave me the wrong amount of cash! The amount showing up in the app is a lot more"
+"(1283, 1285)",Do you guys accept Visa or Mastercard?...,Do you guys accept mastercard or visa?...,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: Do you guys accept Visa or Mastercard?
+Snippet 2: Do you guys accept mastercard or visa?",YES,YES,Must-Link,Do you guys accept Visa or Mastercard?,Do you guys accept mastercard or visa?
+"(778, 2427)","I went to withdraw some cash earlier today, but seems the ATM gave me the wrong amount of cash! The ...",Am I allowed to give my daughter one of my cards to use?...,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: I went to withdraw some cash earlier today, but seems the ATM gave me the wrong amount of cash! The amount showing up in the app is a lot more
+Snippet 2: Am I allowed to give my daughter one of my cards to use?",NO,NO,Cannot-Link,"I went to withdraw some cash earlier today, but seems the ATM gave me the wrong amount of cash! The amount showing up in the app is a lot more",Am I allowed to give my daughter one of my cards to use?
+"(778, 2491)","I went to withdraw some cash earlier today, but seems the ATM gave me the wrong amount of cash! The ...",Do you ship cards to where I live?...,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: I went to withdraw some cash earlier today, but seems the ATM gave me the wrong amount of cash! The amount showing up in the app is a lot more
+Snippet 2: Do you ship cards to where I live?",NO,NO,Cannot-Link,"I went to withdraw some cash earlier today, but seems the ATM gave me the wrong amount of cash! The amount showing up in the app is a lot more",Do you ship cards to where I live?
+"(77, 778)","I already have one of your cards, how do I link them?...","I went to withdraw some cash earlier today, but seems the ATM gave me the wrong amount of cash! The ...","Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: I already have one of your cards, how do I link them?
+Snippet 2: I went to withdraw some cash earlier today, but seems the ATM gave me the wrong amount of cash! The amount showing up in the app is a lot more",NO,NO,Cannot-Link,"I already have one of your cards, how do I link them?","I went to withdraw some cash earlier today, but seems the ATM gave me the wrong amount of cash! The amount showing up in the app is a lot more"
+"(778, 2848)","I went to withdraw some cash earlier today, but seems the ATM gave me the wrong amount of cash! The ...",Is there a way my new card can be renewed?...,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: I went to withdraw some cash earlier today, but seems the ATM gave me the wrong amount of cash! The amount showing up in the app is a lot more
+Snippet 2: Is there a way my new card can be renewed?",NO,NO,Cannot-Link,"I went to withdraw some cash earlier today, but seems the ATM gave me the wrong amount of cash! The amount showing up in the app is a lot more",Is there a way my new card can be renewed?
+"(778, 3058)","I went to withdraw some cash earlier today, but seems the ATM gave me the wrong amount of cash! The ...",Where can I find your locations?...,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: I went to withdraw some cash earlier today, but seems the ATM gave me the wrong amount of cash! The amount showing up in the app is a lot more
+Snippet 2: Where can I find your locations?",NO,NO,Cannot-Link,"I went to withdraw some cash earlier today, but seems the ATM gave me the wrong amount of cash! The amount showing up in the app is a lot more",Where can I find your locations?
+"(89, 1652)",what are exchange rates based on...,My phone was stolen so I no longer have access to the app....,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: what are exchange rates based on
+Snippet 2: My phone was stolen so I no longer have access to the app.",NO,NO,Cannot-Link,what are exchange rates based on,My phone was stolen so I no longer have access to the app.
+"(89, 1890)",what are exchange rates based on...,I am highly unsatisfied with this company and want to delete my account!...,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: what are exchange rates based on
+Snippet 2: I am highly unsatisfied with this company and want to delete my account!",NO,NO,Cannot-Link,what are exchange rates based on,I am highly unsatisfied with this company and want to delete my account!
+"(778, 3076)","I went to withdraw some cash earlier today, but seems the ATM gave me the wrong amount of cash! The ...",How many countries do you support?...,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: I went to withdraw some cash earlier today, but seems the ATM gave me the wrong amount of cash! The amount showing up in the app is a lot more
+Snippet 2: How many countries do you support?",NO,NO,Cannot-Link,"I went to withdraw some cash earlier today, but seems the ATM gave me the wrong amount of cash! The amount showing up in the app is a lot more",How many countries do you support?
+"(2346, 2355)",How do I transfer money to my account?...,How can I transfer money to my account?...,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: How do I transfer money to my account?
+Snippet 2: How can I transfer money to my account?",YES,YES,Must-Link,How do I transfer money to my account?,How can I transfer money to my account?
+"(809, 831)",Why was I charged an extra fee when paying with my card?...,Why was I charged an extra fee when using a card?...,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: Why was I charged an extra fee when paying with my card?
+Snippet 2: Why was I charged an extra fee when using a card?",YES,YES,Must-Link,Why was I charged an extra fee when paying with my card?,Why was I charged an extra fee when using a card?
+"(89, 523)",what are exchange rates based on...,I accidentally blocked my PIN. How do I reset it?...,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: what are exchange rates based on
+Snippet 2: I accidentally blocked my PIN. How do I reset it?",NO,NO,Cannot-Link,what are exchange rates based on,I accidentally blocked my PIN. How do I reset it?
+"(2843, 2868)",Tell me how to go about activating my new card?...,How do I go about activating my new card?...,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: Tell me how to go about activating my new card?
+Snippet 2: How do I go about activating my new card?",YES,YES,Must-Link,Tell me how to go about activating my new card?,How do I go about activating my new card?
+"(2103, 2109)",Why was my card payment cancelled?...,What is the reason that my card payment was cancelled?...,"Human: Are these two text snippets related to the same topic or express the same general intent? Respond with YES or NO.
+Snippet 1: Why was my card payment cancelled?
+Snippet 2: What is the reason that my card payment was cancelled?",YES,YES,Must-Link,Why was my card payment cancelled?,What is the reason that my card payment was cancelled?
