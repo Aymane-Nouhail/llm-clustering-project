@@ -91,7 +91,7 @@ def calculate_clustering_metrics(y_true: np.ndarray, y_pred: np.ndarray, n_clust
     micro_f1 = None
     nmi = None
     ari = None
-    
+    pairwise_precision, pairwise_recall, pairwise_f1 = calculate_pairwise_precision_recall_f1(y_true_valid, y_pred_valid)
     # Calculate NMI and ARI directly on original predictions (before mapping)
     # These metrics are invariant to permutation of labels, so they don't need the mapping
     try:
@@ -120,5 +120,40 @@ def calculate_clustering_metrics(y_true: np.ndarray, y_pred: np.ndarray, n_clust
             "Macro_F1": macro_f1,
             "Micro_F1": micro_f1,
             "NMI": nmi,
-            "ARI": ari
-        }
+            "ARI": ari,
+            "Pairwise_Precision": pairwise_precision,
+            "Pairwise_Recall": pairwise_recall,
+            "Pairwise_F1": pairwise_f1
+}
+
+import numpy as np
+from itertools import combinations
+from sklearn.metrics import f1_score, precision_score, recall_score, normalized_mutual_info_score, adjusted_rand_score
+
+def calculate_pairwise_precision_recall_f1(y_true, y_pred):
+    """
+    Calculates pairwise precision, recall, and F1-score for clustering evaluation.
+    Each document pair is evaluated for co-membership in clusters.
+    """
+    if len(y_true) != len(y_pred):
+        raise ValueError("y_true and y_pred must have the same length.")
+
+    n = len(y_true)
+    true_pairs = set()
+    pred_pairs = set()
+
+    for i, j in combinations(range(n), 2):
+        if y_true[i] == y_true[j]:
+            true_pairs.add((i, j))
+        if y_pred[i] == y_pred[j]:
+            pred_pairs.add((i, j))
+
+    true_positives = len(true_pairs & pred_pairs)
+    predicted_positives = len(pred_pairs)
+    actual_positives = len(true_pairs)
+
+    precision = true_positives / predicted_positives if predicted_positives > 0 else 0.0
+    recall = true_positives / actual_positives if actual_positives > 0 else 0.0
+    f1 = 2 * precision * recall / (precision + recall) if (precision + recall) > 0 else 0.0
+
+    return precision, recall, f1
