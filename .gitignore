@@ -4,3 +4,4 @@ __pycache__/
 .env
 cmvc/
 active_semi_supervised_clustering/
+datasets/
