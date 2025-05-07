@@ -256,14 +256,50 @@ def _load_opiec59k(path: str = "datasets/OPIEC59K/OPIEC59K_valid") -> Tuple[List
     return documents, labels, documents
 
 
-def _load_reverb45k() -> Tuple[List[str], List[int], List[str]]:
-    print("Loading ReVerb45K...")
-    ds = load_dataset_hf("openpef/reverb45k")["test"]
-    docs = ds["sentence"]
-    rels = ds["relation"]
-    label_map = {v: i for i, v in enumerate(sorted(set(rels)))}
-    labels = [label_map[r] for r in rels]
-    return docs, labels, docs
+from typing import List, Tuple
+from collections import Counter
+
+def _load_reverb45k(path: str = "datasets/reverb45k_change/reverb45k_valid") -> Tuple[List[str], List[int], List[str]]:
+    import json
+
+    print("Loading ReVerb45k dataset...")
+    with open(path, "r", encoding="utf-8") as f:
+        data = [json.loads(line) for line in f if line.strip()]
+
+    documents = []
+    labels = []
+    label_mapping = {}
+    current_label_id = 0
+
+    # Step 1: Collect all the labels
+    for entry in data:
+        triple = entry.get("triple", [])
+        sentence = " ".join(triple).strip()
+        if not sentence:
+            continue
+
+        wiki_object = entry.get("entity_linking", {}).get("object", "")
+        if not wiki_object:
+            continue
+
+        if wiki_object not in label_mapping:
+            label_mapping[wiki_object] = current_label_id
+            current_label_id += 1
+
+        label = label_mapping[wiki_object]
+        documents.append(sentence)
+        labels.append(label)
+
+    # Step 2: Filter out single occurrence labels (clusters with only one item)
+    label_counts = Counter(labels)
+    filtered_docs = [doc for doc, lbl in zip(documents, labels) if label_counts[lbl] > 1]
+    filtered_labels = [lbl for lbl in labels if label_counts[lbl] > 1]
+
+    print(f"Loaded {len(filtered_docs)} triples from ReVerb45k after filtering out singleton clusters.")
+    print(f"Found {len(set(filtered_labels))} unique object entities (clusters): "
+          f"{list(set(filtered_labels))[:10] + ['...'] if len(set(filtered_labels)) > 10 else list(set(filtered_labels))}")
+
+    return filtered_docs, filtered_labels, filtered_docs
 
 # --- Main Dataset Loading Function ---
 
