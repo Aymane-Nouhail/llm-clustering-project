@@ -19,10 +19,9 @@ This is directly inspired from the followig paper: [Viswanathan et al. (2023)](h
 ## Features
 
 - **Data Loading**: Supports Hugging Face datasets and caching
-- **LLM Service**: Unified interface for OpenAI & Instructor embeddings
-- **Baselines**: Standard clustering methods : Naive KMeans 
+- **LLM Service**: Unified interface for OpenAI, modular and can be adjusted without changing the rest of the project to use different LLMs and embedding models.
 - **LLM Methods**: Keyphrase expansion, clustering correction and pairwise PCKMeans using an LLM as a pseudo-oracle 
-- **Metrics**: Accuracy, Precision, Recall, F1, NMI, ARI
+- **Metrics**: Accuracy, Precision, Recall, Macro_F1, Micro_F1, NMI, ARI, Pairwise Precision, Pairwise Recall, Pairwise F1
 - **Config Management**: Via `src/config.py` for changing prompts, and setting up configuration variables, as well as changing embedding and generation models.
 
 ## Setup
