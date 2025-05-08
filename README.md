@@ -30,7 +30,8 @@ This is directly inspired from the followig paper: [Viswanathan et al. (2023)](h
 2. Install required dependencies : `pip install -r requirements.txt`
 3. create a `.env` variable and define `OPENAI_API_KEY = sk-...`
 4. launch the command : `source .env`
-5. to launch a certain method experiment, use the following commands from the root folder of the repository : 
+5. for the `reverb45k` and `opiec59k` datasets, consider downloading them from [here](https://drive.google.com/file/d/1vetosoVBf89-It1cD671AfiP0ZrcBz-P/view) 
+6. to launch a certain method experiment, use the following commands from the root folder of the repository : 
    1. `python -m main run_method_name dataset_name`
    2. the method experiment will be launched with visual feedback for the progress for embeddings and text generations.
    3. the metrics csv file will be populated with the new calculated metrics for the experiment.
