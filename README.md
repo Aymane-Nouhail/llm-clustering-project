@@ -1,9 +1,30 @@
-# LLM Clustering Project
+# LLM Clustering Framework
 
-A framework to explore and evaluate clustering methods enhanced by Large Language Models (LLMs), including embedding generation, keyphrase expansion, and clustering correction.
+A comprehensive framework for evaluating LLM-enhanced clustering techniques, including embedding generation, keyphrase expansion, and clustering correction. Inspired by [Viswanathan et al. (2023)](https://arxiv.org/abs/2307.00524), this implementation extends the original work with modern LLMs and OpenAI embeddings.
 
-This is directly inspired from the followig paper: [Viswanathan et al. (2023)](https://arxiv.org/abs/2307.00524) And is an attempt at replicating its results with new LLM models and the OpenAI embedding models.
+<p align="center">
+<img width="514" alt="image" src="https://github.com/user-attachments/assets/2253b9e6-e6c6-4f18-8a0f-aec46027700a" />
+</p>
 
+## Features
+
+- **Multi-method Evaluation**:
+  - Naive KMeans baseline
+  - Keyphrase-enhanced clustering
+  - LLM-based clustering correction
+  - Pairwise constraints (PCKMeans) with LLM oracle
+
+- **Integrated Workflow**:
+  - Dataset loading with Hugging Face integration
+  - Embedding generation (OpenAI/Instructor)
+  - Clustering execution
+  - Comprehensive metric evaluation
+
+- **Technical Highlights**:
+  - Configurable prompts and models
+  - Automatic caching of embeddings
+  - Detailed experiment logging
+  - Multi-metric evaluation (Accuracy, F1, NMI, ARI)
 
 ## Project Structure
 
@@ -13,30 +34,17 @@ This is directly inspired from the followig paper: [Viswanathan et al. (2023)](h
   - `run_correction.py`
   - `run_pairwise.py`
 - **src/**: Core logic
-  - `baselines.py`, `config.py`, `data.py`, `llm_service.py`, `metrics.py`
-  - `clustering_methods/`: Clustering enhancement methods
-
-## Features
-
-- **Data Loading**: Supports Hugging Face datasets and caching
-- **LLM Service**: Unified interface for OpenAI & Instructor embeddings
-- **Baselines**: Standard clustering methods : Naive KMeans 
-- **LLM Methods**: Keyphrase expansion, clustering correction and pairwise PCKMeans using an LLM as a pseudo-oracle 
-- **Metrics**: Accuracy, Precision, Recall, F1, NMI, ARI
-- **Config Management**: Via `src/config.py` for changing prompts, and setting up configuration variables, as well as changing embedding and generation models.
+  - `baselines.py`, `config.py`, `data.py`, `llm_service.py`, `metrics.py` : Helper Modules.
+  - `clustering_methods/`: Enhancement methods.
 
 ## Setup
 
-1. Clone the repo
-2. Install required dependencies : `pip install -r requirements.txt`
-3. create a `.env` variable and define `OPENAI_API_KEY = sk-...`
-4. launch the command : `source .env`
-5. to launch a certain method experiment, use the following commands from the root folder of the repository : 
-   1. `python -m main run_method_name dataset_name`
-   2. the method experiment will be launched with visual feedback for the progress for embeddings and text generations.
-   3. the metrics csv file will be populated with the new calculated metrics for the experiment.
-   4. Another file with the prompts and what the LLM generated will also be created.
-
-If you want to contribute to the repo and enhance it, feel free to clone it and open up a Pull Request with your suggested enhancements ^^.
-
-Thank you.
+1. Clone repo
+2. Create and activate your Python virtual environment.
+3. `pip install -r requirements.txt`
+4. Create `.env` with `OPENAI_API_KEY=sk-...`
+5. Run experiments:
+   ```bash
+   python -m main.run_naive_baseline tweet
+   python -m main.run_pairwise banking77
+   
